@@ -1,0 +1,55 @@
+.display-xl{
+
+    font-size:clamp(4rem,9vw,9rem);
+
+    line-height:.9;
+
+    font-weight:700;
+
+    letter-spacing:-.05em;
+
+}
+
+.display-lg{
+
+    font-size:clamp(3rem,7vw,6rem);
+
+    line-height:1;
+
+    font-weight:700;
+
+}
+
+.heading{
+
+    font-size:clamp(2rem,4vw,3rem);
+
+    line-height:1.1;
+
+    font-weight:600;
+
+}
+
+.body-lg{
+
+    font-size:1.25rem;
+
+    line-height:1.9;
+
+}
+
+.body{
+
+    font-size:1rem;
+
+    line-height:1.8;
+
+}
+
+.caption{
+
+    font-size:.875rem;
+
+    color:var(--color-muted);
+
+}

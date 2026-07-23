@@ -1,0 +1,23 @@
+:root {
+
+  /* Colors */
+
+  --color-background: #FAF9F6;
+  --color-surface: #FFFFFF;
+  --color-text: #111111;
+  --color-muted: #6B7280;
+  --color-border: #E7E3DB;
+  --color-primary: #A30000;
+
+  /* Radius */
+
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-lg: 28px;
+  --radius-xl: 40px;
+
+  /* Container */
+
+  --container: 1440px;
+
+}

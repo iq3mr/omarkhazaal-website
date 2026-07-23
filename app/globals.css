@@ -1,12 +1,94 @@
 @import "tailwindcss";
 
+:root {
+  --background: #F5F2EB;
+  --foreground: #151515;
+  --red: #A30018;
+
+  --font-body: var(--font-sans);
+  --font-title: var(--font-serif);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  margin: 0;
-  background: #ffffff;
-  color: #111827;
-  font-family: Arial, sans-serif;
+  position: relative;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* خامة ورقية ناعمة جداً */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.025;
+  z-index: 9999;
+  background-image:
+    radial-gradient(circle at 20% 20%, #000 0.5px, transparent 0.7px),
+    radial-gradient(circle at 80% 70%, #000 0.5px, transparent 0.7px);
+  background-size: 18px 18px, 24px 24px;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+.display {
+  font-family: var(--font-title);
+  line-height: 1.1;
+}
+
+p {
+  line-height: 1.9;
+}
+
+::selection {
+  background: var(--red);
+  color: white;
+}
+
+/* Container موحد */
+.container {
+  width: min(1280px, 100% - 48px);
+  margin-inline: auto;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: min(1280px, calc(100% - 80px));
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    width: min(1280px, calc(100% - 112px));
+  }
 }

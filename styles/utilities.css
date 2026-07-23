@@ -1,0 +1,21 @@
+.section{
+
+    padding-block:120px;
+
+}
+
+.center{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.text-balance{
+
+    text-wrap:balance;
+
+}
