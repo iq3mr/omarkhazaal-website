@@ -9,7 +9,7 @@ const books = [
     year: "2026",
     description:
       "مرجع أكاديمي لتعليم التربية الفنية، يجمع بين الأسس النظرية والتطبيق العملي، ويقدم منهجاً حديثاً لتدريس الفن باللغة العربية.",
-    image: "/books/aynaltarbyah.jpg",
+    image: "/books/cover.jpg",
   },
   {
     title: "فن الرسم العراقي",

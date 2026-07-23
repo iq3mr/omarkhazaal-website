@@ -19,6 +19,8 @@ export default function Hero() {
   });
 
   function move(e: React.MouseEvent<HTMLElement>) {
+    if (window.innerWidth < 1024) return;
+
     const rect = e.currentTarget.getBoundingClientRect();
 
     mouseX.set((e.clientX - rect.width / 2) / 35);
@@ -28,7 +30,17 @@ export default function Hero() {
   return (
     <section
       onMouseMove={move}
-      className="relative min-h-screen overflow-hidden flex items-center justify-center"
+      className="
+        relative
+        min-h-[100svh]
+        overflow-hidden
+        flex
+        items-center
+        justify-center
+        px-6
+        pt-32
+        pb-24
+      "
     >
       {/* الخلفية الأولى */}
 
@@ -47,10 +59,10 @@ export default function Hero() {
           absolute
           -top-52
           -left-52
-          w-[500px]
-          h-[500px]
-          sm:w-[650px]
-          sm:h-[650px]
+          w-[420px]
+          h-[420px]
+          sm:w-[600px]
+          sm:h-[600px]
           lg:w-[900px]
           lg:h-[900px]
           rounded-full
@@ -78,10 +90,10 @@ export default function Hero() {
           absolute
           -bottom-52
           -right-52
-          w-[500px]
-          h-[500px]
-          sm:w-[650px]
-          sm:h-[650px]
+          w-[420px]
+          h-[420px]
+          sm:w-[600px]
+          sm:h-[600px]
           lg:w-[850px]
           lg:h-[850px]
           rounded-full
@@ -94,118 +106,138 @@ export default function Hero() {
 
       {/* المحتوى */}
 
-      <div className="container relative z-10 text-center flex flex-col items-center">
+      <div className="container relative z-10">
 
-        <motion.div
-          style={{
-            x,
-            y,
-          }}
-          animate={{
-            y: [0, -10, 0],
-          }}
-          transition={{
-            y: {
-              duration: 6,
-              repeat: Infinity,
-            },
-          }}
-        >
-          <Image
-            src="/eye.png"
-            alt="أكاديمية عمر خزعل"
-            width={280}
-            height={280}
-            priority
+        <div className="max-w-5xl mx-auto flex flex-col items-center text-center">
+
+          <motion.div
+            style={{ x, y }}
+            animate={{
+              y: [0, -10, 0],
+            }}
+            transition={{
+              y: {
+                duration: 6,
+                repeat: Infinity,
+              },
+            }}
+          >
+            <Image
+              src="/eye.png"
+              alt="أكاديمية عمر خزعل"
+              width={280}
+              height={280}
+              priority
+              className="
+                w-28
+                sm:w-40
+                md:w-56
+                lg:w-72
+                h-auto
+                drop-shadow-[0_0_70px_rgba(163,0,24,.45)]
+              "
+            />
+          </motion.div>
+
+          <motion.h1
+            initial={{
+              opacity: 0,
+              y: 60,
+              filter: "blur(10px)",
+            }}
+            animate={{
+              opacity: 1,
+              y: 0,
+              filter: "blur(0px)",
+            }}
+            transition={{
+              duration: 1,
+            }}
             className="
-              w-40
-              sm:w-52
-              md:w-64
-              lg:w-72
-              h-auto
-              drop-shadow-[0_0_70px_rgba(163,0,24,.45)]
+              mt-8
+              text-3xl
+              sm:text-5xl
+              md:text-7xl
+              lg:text-8xl
+              font-black
+              leading-[1.15]
             "
-          />
-        </motion.div>
+          >
+            أكاديمية عمر خزعل
+          </motion.h1>
 
-        <motion.h1
-          initial={{
-            opacity: 0,
-            y: 60,
-            filter: "blur(10px)",
-          }}
-          animate={{
-            opacity: 1,
-            y: 0,
-            filter: "blur(0px)",
-          }}
-          transition={{
-            duration: 1,
-          }}
-          className="
-            mt-10
-            text-5xl
-            sm:text-6xl
-            md:text-7xl
-            lg:text-8xl
-            font-black
-            leading-tight
-          "
-        >
-          أكاديمية عمر خزعل
-        </motion.h1>
+          <motion.p
+            initial={{
+              opacity: 0,
+              y: 30,
+            }}
+            animate={{
+              opacity: 1,
+              y: 0,
+            }}
+            transition={{
+              delay: .2,
+            }}
+            className="
+              mt-7
+              max-w-3xl
+              text-sm
+              sm:text-base
+              md:text-xl
+              leading-8
+              md:leading-10
+              text-neutral-600
+            "
+          >
+            الفن ليس مادة دراسية فحسب
+            <br />
+            بل أسلوب حياة.
 
-        <motion.p
-          initial={{
-            opacity: 0,
-            y: 30,
-          }}
-          animate={{
-            opacity: 1,
-            y: 0,
-          }}
-          transition={{
-            delay: .2,
-          }}
-          className="
-            mt-8
-            max-w-3xl
-            text-base
-            sm:text-lg
-            md:text-xl
-            leading-8
-            md:leading-10
-            text-neutral-600
-            px-2
-          "
-        >
-          الفن ليس مادة دراسية فحسب
-          <br />
-          بل اسلوب حياة
-        </motion.p>
+            <br className="hidden md:block" />
 
-        <motion.div
-          initial={{
-            opacity: 0,
-            y: 30,
-          }}
-          animate={{
-            opacity: 1,
-            y: 0,
-          }}
-          transition={{
-            delay: .4,
-          }}
-          className="
-            mt-10
-            sm:mt-12
-            md:mt-16
-          "
-        >
-          <Button href="/courses">
-            ابدأ رحلتك
-          </Button>
-        </motion.div>
+            <span className="hidden md:inline">
+              منصة عربية حديثة لتعليم الفن والرسم والتصميم
+              وصناعة المحتوى وفق منهج أكاديمي معاصر.
+            </span>
+          </motion.p>
+
+          <motion.div
+            initial={{
+              opacity: 0,
+              y: 30,
+            }}
+            animate={{
+              opacity: 1,
+              y: 0,
+            }}
+            transition={{
+              delay: .4,
+            }}
+            className="
+              mt-10
+              flex
+              flex-col
+              sm:flex-row
+              gap-4
+              w-full
+              sm:w-auto
+              justify-center
+            "
+          >
+            <Button href="/courses">
+              ابدأ رحلتك
+            </Button>
+
+            <Button
+              href="/books"
+              variant="secondary"
+            >
+              تصفح الكتب
+            </Button>
+
+          </motion.div>
+
+        </div>
 
       </div>
 
@@ -221,7 +253,7 @@ export default function Hero() {
         }}
         className="
           hidden
-          md:block
+          lg:block
           absolute
           bottom-10
           left-1/2
@@ -233,7 +265,7 @@ export default function Hero() {
 
       {/* دمج القسم مع القسم التالي */}
 
-      <div className="absolute bottom-0 left-0 w-full h-40 md:h-48 bg-gradient-to-b from-transparent to-[#F5F2EB]" />
+      <div className="absolute bottom-0 left-0 w-full h-28 md:h-48 bg-gradient-to-b from-transparent to-[#F5F2EB]" />
     </section>
   );
 }
