@@ -6,27 +6,27 @@ import "./globals.css";
 const thmanyahSans = localFont({
   src: [
     {
-      path: "./fonts/thmanyahsans-Light.woff2",
+      path: "./fonts/ThmanyahSans-Light.woff2",
       weight: "300",
       style: "normal",
     },
     {
-      path: "./fonts/thmanyahsans-Regular.woff2",
+      path: "./fonts/ThmanyahSans-Regular.woff2",
       weight: "400",
       style: "normal",
     },
     {
-      path: "./fonts/thmanyahsans-Medium.woff2",
+      path: "./fonts/ThmanyahSans-Medium.woff2",
       weight: "500",
       style: "normal",
     },
     {
-      path: "./fonts/thmanyahsans-Bold.woff2",
+      path: "./fonts/ThmanyahSans-Bold.woff2",
       weight: "700",
       style: "normal",
     },
     {
-      path: "./fonts/thmanyahSans-Black.woff2",
+      path: "./fonts/ThmanyahSans-Black.woff2",
       weight: "900",
       style: "normal",
     },
@@ -38,27 +38,27 @@ const thmanyahSans = localFont({
 const thmanyahSerif = localFont({
   src: [
     {
-      path: "./fonts/thmanyahserifdisplay-Light.woff2",
+      path: "./fonts/ThmanyahSerifDisplay-Light.woff2",
       weight: "300",
       style: "normal",
     },
     {
-      path: "./fonts/thmanyahserifdisplay-Regular.woff2",
+      path: "./fonts/ThmanyahSerifDisplay-Regular.woff2",
       weight: "400",
       style: "normal",
     },
     {
-      path: "./fonts/thmanyahserifdisplay-Medium.woff2",
+      path: "./fonts/ThmanyahSerifDisplay-Medium.woff2",
       weight: "500",
       style: "normal",
     },
     {
-      path: "./fonts/thmanyahserifdisplay-Bold.woff2",
+      path: "./fonts/ThmanyahSerifDisplay-Bold.woff2",
       weight: "700",
       style: "normal",
     },
     {
-      path: "./fonts/thmanyahserifdisplay-Black.woff2",
+      path: "./fonts/ThmanyahSerifDisplay-Black.woff2",
       weight: "900",
       style: "normal",
     },
@@ -74,16 +74,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="ar" dir="rtl">
       <body
         className={`${thmanyahSans.variable} ${thmanyahSerif.variable}`}
       >
         <Background />
-
         {children}
       </body>
     </html>
