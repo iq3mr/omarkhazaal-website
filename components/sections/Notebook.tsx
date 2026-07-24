@@ -8,19 +8,19 @@ const posts = [
   {
     title: "هل لتاريخ الفن ان يكذب؟",
     date: "12 يوليو 2026",
-    image: "/journal/post11.jpg",
+    image: "/journal/post11.webp",
     href: "/journal/how-to-learn",
   },
   {
     title: "ما حقيقة الاسعار المرتفعة للوحات؟",
     date: "8 يوليو 2026",
-    image: "/journal/post12.jpg",
+    image: "/journal/post12.webp",
     href: "/journal/why-people-fail",
   },
   {
     title: "كيف يكون النقد الحقيقي لفن الرسم؟",
     date: "2 يوليو 2026",
-    image: "/journal/post13.jpg",
+    image: "/journal/post13.webp",
     href: "/journal/artist-vs-designer",
   },
 ];
