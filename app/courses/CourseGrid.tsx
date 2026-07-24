@@ -10,7 +10,7 @@ const courses = [
     title: "الرسم الرقمي",
     description:
       "تعلم الرسم الرقمي من الصفر حتى الاحتراف باستخدام منهج أكاديمي ومشاريع عملية.",
-    image: "/courses/digital-painting.jpg",
+    image: "/courses/digitalc.webp",
     level: "مبتدئ → متقدم",
     lessons: "42 درس",
     href: "/courses/digital-painting",
@@ -19,7 +19,7 @@ const courses = [
     title: "أساسيات الرسم",
     description:
       "افهم المنظور، الضوء، الظل، التشريح، والتكوين بطريقة سهلة وعملية.",
-    image: "/courses/drawing-basics.jpg",
+    image: "/courses/drawingom.webp",
     level: "مبتدئ",
     lessons: "30 درس",
     href: "/courses/drawing-basics",
@@ -28,7 +28,7 @@ const courses = [
     title: "نظرية اللون",
     description:
       "تعلم اختيار الألوان، بناء اللوحات، وتحقيق الانسجام البصري.",
-    image: "/courses/color-theory.jpg",
+    image: "/courses/contento.webp",
     level: "متوسط",
     lessons: "18 درس",
     href: "/courses/color-theory",

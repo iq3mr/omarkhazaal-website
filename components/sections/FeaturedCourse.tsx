@@ -16,7 +16,7 @@ export default function FeaturedCourse() {
           <div className="relative overflow-hidden rounded-[40px]">
 
             <Image
-              src="/courses/featuredDA.jpg"
+              src="/courses/featuredDA.webp"
               alt="الرسم الرقمي"
               width={900}
               height={1200}

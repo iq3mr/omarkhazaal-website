@@ -9,42 +9,42 @@ const courses = [
     category: "Drawing",
     description:
       "تعلم أسس الرسم الأكاديمي والمنظور والتشريح والظل والنور بطريقة منهجية.",
-    image: "/courses/drawingom.jpg",
+    image: "/courses/drawingom.webp",
   },
   {
     title: "الرسم الرقمي",
     category: "Digital Art",
     description:
       "احتراف الرسم الرقمي باستخدام أحدث البرامج وأفضل أساليب العمل.",
-    image: "/courses/digitalc.jpg",
+    image: "/courses/digitalc.webp",
   },
   {
     title: "التصميم الجرافيكي",
     category: "Design",
     description:
       "تعلم تصميم الهوية البصرية والملصقات والمنشورات بطريقة احترافية.",
-    image: "/courses/designon.jpg",
+    image: "/courses/designon.webp",
   },
   {
     title: "صناعة المحتوى",
     category: "Content",
     description:
       "كيف تبني محتوى احترافياً يجذب الجمهور ويصنع هوية شخصية قوية.",
-    image: "/courses/contento.jpg",
+    image: "/courses/contento.webp",
   },
   {
     title: "التسويق الرقمي",
     category: "Marketing",
     description:
       "إعلانات Meta واستراتيجيات النمو وإدارة الحملات التسويقية.",
-    image: "/courses/marketing.jpg",
+    image: "/courses/marketing.webp",
   },
   {
     title: "الذكاء الاصطناعي للمبدعين",
     category: "AI",
     description:
       "استخدام أدوات الذكاء الاصطناعي في التصميم وصناعة المحتوى.",
-    image: "/courses/ai.jpg",
+    image: "/courses/ai.webp",
   },
 ];
 

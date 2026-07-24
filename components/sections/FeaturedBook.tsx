@@ -75,7 +75,7 @@ export default function FeaturedBook() {
         <div className="relative order-1 lg:order-2">
 
           <Image
-            src="/books/cover.jpg"
+            src="/books/3aynaltarbya.webp"
             alt="عين التربية الفنية"
             width={1800}
             height={2700}
