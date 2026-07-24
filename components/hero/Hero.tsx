@@ -75,23 +75,10 @@ export default function Hero() {
       <div className="container relative z-10 text-center flex flex-col items-center">
 
         <div>
-          <Image
+          <img
   src="/eye.webp"
   alt="أكاديمية عمر خزعل"
-  width={280}
-  height={280}
-  priority
-  fetchPriority="high"
-  sizes="(max-width:768px) 160px, (max-width:1200px) 240px, 280px"
-  className="
-    w-40
-    sm:w-52
-    md:w-64
-    lg:w-72
-    h-auto
-    drop-shadow-[0_0_55px_rgba(163,0,24,.35)]
-    select-none
-  "
+  className="w-40 sm:w-52 md:w-64 lg:w-72 h-auto"
 />
         </div>
 
