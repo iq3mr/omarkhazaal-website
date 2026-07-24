@@ -140,23 +140,21 @@ export default function Navbar() {
                     className="flex flex-col items-center justify-center"
                   >
                     <Image
-                      src="/eye.png"
-                      alt="أكاديمية عمر خزعل"
-                      width={46}
-                      height={46}
-                      priority
-                      sizes="46px"
-                      className="
-                        w-10
-                        lg:w-[46px]
-                        h-auto
-                        select-none
-                        drop-shadow-[0_0_12px_rgba(163,0,24,.35)]
-                        transition-transform
-                        duration-300
-                        hover:scale-105
-                      "
-                    />
+  src="/eye.webp"
+  alt="Academy"
+  width={46}
+  height={46}
+  priority
+  className="
+    w-10
+    lg:w-[46px]
+    h-auto
+    drop-shadow-[0_0_18px_rgba(163,0,24,.4)]
+    transition
+    duration-500
+    hover:scale-110
+  "
+/>
 
                     <span className="mt-2 text-xs lg:text-sm font-bold">
                       أكاديمية عمر خزعل
