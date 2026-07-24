@@ -1,71 +1,96 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 export default function Background() {
+
+  const reduceMotion = useReducedMotion();
+
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
 
       {/* Glow 1 */}
 
       <motion.div
-        animate={{
-          x: [0, 120, 0],
-          y: [0, -80, 0],
-          scale: [1, 1.15, 1],
-        }}
-        transition={{
-          duration: 30,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
         className="
           absolute
-          -top-80
-          -left-80
-          w-[900px]
-          h-[900px]
+          -top-52
+          -left-52
+          w-[420px]
+          h-[420px]
+          md:w-[650px]
+          md:h-[650px]
+          lg:w-[900px]
+          lg:h-[900px]
           rounded-full
-          blur-[180px]
+          blur-[70px]
+          md:blur-[120px]
+          lg:blur-[180px]
           opacity-20
+          will-change-transform
         "
         style={{
           background: "#A30018",
+        }}
+        animate={
+          reduceMotion
+            ? undefined
+            : {
+                x: [0, 80, 0],
+                y: [0, -50, 0],
+                scale: [1, 1.08, 1],
+              }
+        }
+        transition={{
+          duration: 28,
+          repeat: Infinity,
+          ease: "easeInOut",
         }}
       />
 
       {/* Glow 2 */}
 
       <motion.div
-        animate={{
-          x: [0, -100, 0],
-          y: [0, 80, 0],
-          scale: [1.1, 1, 1.1],
-        }}
-        transition={{
-          duration: 36,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
         className="
           absolute
-          -bottom-96
-          -right-96
-          w-[900px]
-          h-[900px]
+          -bottom-60
+          -right-60
+          w-[420px]
+          h-[420px]
+          md:w-[650px]
+          md:h-[650px]
+          lg:w-[900px]
+          lg:h-[900px]
           rounded-full
-          blur-[180px]
+          blur-[70px]
+          md:blur-[120px]
+          lg:blur-[180px]
           opacity-15
+          will-change-transform
         "
         style={{
           background: "#A30018",
+        }}
+        animate={
+          reduceMotion
+            ? undefined
+            : {
+                x: [0, -70, 0],
+                y: [0, 60, 0],
+                scale: [1.05, 1, 1.05],
+              }
+        }
+        transition={{
+          duration: 34,
+          repeat: Infinity,
+          ease: "easeInOut",
         }}
       />
 
       {/* Grid */}
 
       <div
-        className="absolute inset-0 opacity-[0.025]"
+        className="absolute inset-0 opacity-[0.02]"
         style={{
           backgroundImage: `
             linear-gradient(to right,#000 1px,transparent 1px),

@@ -50,50 +50,82 @@ const courses = [
 
 export default function Courses() {
   return (
-    <section className="py-36 bg-[#F5F2EB]">
+    <section className="py-28 md:py-36 bg-[#F5F2EB]">
       <div className="container">
 
         <motion.p
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.45 }}
           className="text-[#A30018] tracking-[6px] uppercase text-sm"
         >
           Courses
         </motion.p>
 
         <motion.h2
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.5 }}
           className="mt-5 text-5xl md:text-7xl font-black"
         >
           الدورات
         </motion.h2>
 
-        <p className="mt-8 max-w-3xl text-xl leading-10 text-neutral-600">
+        <p className="mt-8 max-w-3xl text-lg md:text-xl leading-9 md:leading-10 text-neutral-600">
           مجموعة من الدورات المصممة لتطوير مهارات الفنان وصانع المحتوى،
           بالاعتماد على خبرة أكاديمية وعملية.
         </p>
 
-        <div className="grid lg:grid-cols-3 gap-10 mt-20">
+        <div className="grid lg:grid-cols-3 gap-8 mt-20">
+
           {courses.map((course, index) => (
+
             <motion.article
               key={course.title}
-              initial={{ opacity: 0, y: 60 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.08 }}
-              whileHover={{ y: -8 }}
-              className="group overflow-hidden rounded-[32px] bg-white shadow-lg"
+              viewport={{
+                once: true,
+                amount: 0.15,
+              }}
+              transition={{
+                duration: 0.45,
+                delay: index * 0.04,
+              }}
+              whileHover={{ y: -4 }}
+              className="
+                group
+                overflow-hidden
+                rounded-[30px]
+                bg-white
+                shadow-md
+                transition-shadow
+                hover:shadow-xl
+              "
             >
+
               <div className="relative aspect-[4/3] overflow-hidden">
+
                 <Image
                   src={course.image}
                   alt={course.title}
                   fill
-                  className="object-cover transition duration-700 group-hover:scale-105"
+                  loading="lazy"
+                  sizes="
+                    (max-width:768px) 100vw,
+                    (max-width:1200px) 50vw,
+                    33vw
+                  "
+                  className="
+                    object-cover
+                    transition-transform
+                    duration-500
+                    group-hover:scale-[1.03]
+                  "
                 />
+
               </div>
 
               <div className="p-8">
@@ -119,7 +151,8 @@ export default function Courses() {
                     px-6
                     py-3
                     text-[#A30018]
-                    transition
+                    transition-colors
+                    duration-300
                     hover:bg-[#A30018]
                     hover:text-white
                   "
@@ -128,8 +161,11 @@ export default function Courses() {
                 </button>
 
               </div>
+
             </motion.article>
+
           ))}
+
         </div>
 
       </div>

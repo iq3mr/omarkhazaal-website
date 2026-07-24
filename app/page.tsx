@@ -1,16 +1,48 @@
+import dynamic from "next/dynamic";
+
 import Navbar from "../components/layout/Navbar";
 import Hero from "../components/hero/Hero";
-import Manifesto from "../components/sections/Manifesto";
-import Courses from "../components/sections/Courses";
-import Books from "../components/sections/Books";
-import Notebook from "../components/sections/Notebook";
-import About from "../components/sections/About";
-import Contact from "../components/sections/Contact";
-import Footer from "../components/layout/Footer";
 import Background from "../components/background/Background";
-import FeaturedCourse from "../components/sections/FeaturedCourse";
-import FeaturedBook from "../components/sections/FeaturedBook";
-import ContactCTA from "../components/sections/ContactCTA";
+
+const Manifesto = dynamic(
+  () => import("../components/sections/Manifesto")
+);
+
+const FeaturedCourse = dynamic(
+  () => import("../components/sections/FeaturedCourse")
+);
+
+const FeaturedBook = dynamic(
+  () => import("../components/sections/FeaturedBook")
+);
+
+const Courses = dynamic(
+  () => import("../components/sections/Courses")
+);
+
+const Books = dynamic(
+  () => import("../components/sections/Books")
+);
+
+const Notebook = dynamic(
+  () => import("../components/sections/Notebook")
+);
+
+const About = dynamic(
+  () => import("../components/sections/About")
+);
+
+const Contact = dynamic(
+  () => import("../components/sections/Contact")
+);
+
+const ContactCTA = dynamic(
+  () => import("../components/sections/ContactCTA")
+);
+
+const Footer = dynamic(
+  () => import("../components/layout/Footer")
+);
 
 export default function Home() {
   return (
