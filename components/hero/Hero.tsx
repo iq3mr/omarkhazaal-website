@@ -1,121 +1,103 @@
 "use client";
 
 import Image from "next/image";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import Button from "../../components/ui/Button";
 
 export default function Hero() {
-  const reduceMotion = useReducedMotion();
-
   return (
     <section className="relative min-h-screen overflow-hidden flex items-center justify-center">
 
-      {/* الخلفية الأولى */}
+      {/* Animated Background */}
 
       <motion.div
         className="
           absolute
           -top-52
           -left-52
-          w-[340px]
-          h-[340px]
-          md:w-[520px]
-          md:h-[520px]
-          lg:w-[700px]
-          lg:h-[700px]
+          w-[420px]
+          h-[420px]
+          md:w-[650px]
+          md:h-[650px]
+          lg:w-[900px]
+          lg:h-[900px]
           rounded-full
-          blur-[90px]
+          blur-[120px]
           will-change-transform
         "
         style={{
-          background: "rgba(163,0,24,.06)",
+          background: "rgba(163,0,24,.08)",
         }}
-        animate={
-          reduceMotion
-            ? undefined
-            : {
-                scale: [1, 1.05, 1],
-                x: [0, 40, 0],
-                y: [0, -20, 0],
-              }
-        }
+        animate={{
+          scale: [1, 1.08, 1],
+          x: [0, 60, 0],
+          y: [0, -30, 0],
+        }}
         transition={{
-          duration: 28,
+          duration: 24,
           repeat: Infinity,
           ease: "easeInOut",
         }}
       />
-
-      {/* الخلفية الثانية */}
 
       <motion.div
         className="
           absolute
           -bottom-52
           -right-52
-          w-[340px]
-          h-[340px]
-          md:w-[520px]
-          md:h-[520px]
-          lg:w-[700px]
-          lg:h-[700px]
+          w-[420px]
+          h-[420px]
+          md:w-[650px]
+          md:h-[650px]
+          lg:w-[850px]
+          lg:h-[850px]
           rounded-full
-          blur-[90px]
+          blur-[120px]
           will-change-transform
         "
         style={{
-          background: "rgba(163,0,24,.05)",
+          background: "rgba(163,0,24,.06)",
         }}
-        animate={
-          reduceMotion
-            ? undefined
-            : {
-                scale: [1.04, 1, 1.04],
-                x: [0, -40, 0],
-                y: [0, 30, 0],
-              }
-        }
+        animate={{
+          scale: [1.05, 1, 1.05],
+          x: [0, -60, 0],
+          y: [0, 40, 0],
+        }}
         transition={{
-          duration: 34,
+          duration: 30,
           repeat: Infinity,
           ease: "easeInOut",
         }}
       />
 
+      {/* Hero */}
+
       <div className="container relative z-10 text-center flex flex-col items-center">
 
-        {/* العين */}
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: .5 }}
-        >
+        <div>
           <Image
-            src="/eye.WEBP"
+            src="/eye.webp"
             alt="أكاديمية عمر خزعل"
             width={280}
             height={280}
             priority
             fetchPriority="high"
-            quality={90}
-            sizes="(max-width:768px) 160px,(max-width:1200px) 240px,280px"
+            loading="eager"
+            decoding="sync"
+            sizes="(max-width:768px) 160px, (max-width:1200px) 240px, 280px"
             className="
               w-40
               sm:w-52
               md:w-64
               lg:w-72
               h-auto
-              drop-shadow-[0_0_40px_rgba(163,0,24,.25)]
+              drop-shadow-[0_0_55px_rgba(163,0,24,.35)]
               select-none
             "
           />
-        </motion.div>
+        </div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: .55 }}
+        <h1
           className="
             mt-10
             text-5xl
@@ -127,15 +109,9 @@ export default function Hero() {
           "
         >
           أكاديمية عمر خزعل
-        </motion.h1>
+        </h1>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{
-            delay: .12,
-            duration: .5,
-          }}
+        <p
           className="
             mt-8
             max-w-3xl
@@ -151,23 +127,43 @@ export default function Hero() {
           الفن ليس مادة دراسية فحسب
           <br />
           بل أسلوب حياة.
-        </motion.p>
+        </p>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{
-            delay: .25,
-            duration: .5,
-          }}
-          className="mt-10 md:mt-14"
+        <div
+          className="
+            mt-10
+            md:mt-14
+          "
         >
           <Button href="/courses">
             ابدأ رحلتك
           </Button>
-        </motion.div>
+        </div>
 
       </div>
+
+      {/* Scroll Indicator */}
+
+      <motion.div
+        className="
+          hidden
+          md:block
+          absolute
+          bottom-10
+          left-1/2
+          -translate-x-1/2
+        "
+        animate={{
+          y: [0, 10, 0],
+        }}
+        transition={{
+          duration: 2,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      >
+        <div className="w-[2px] h-16 bg-gradient-to-b from-[#A30018] to-transparent" />
+      </motion.div>
 
       <div
         className="
@@ -182,6 +178,7 @@ export default function Hero() {
           to-[#F5F2EB]
         "
       />
+
     </section>
   );
 }

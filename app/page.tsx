@@ -2,7 +2,6 @@ import dynamic from "next/dynamic";
 
 import Navbar from "../components/layout/Navbar";
 import Hero from "../components/hero/Hero";
-import Footer from "../components/layout/Footer";
 import Background from "../components/background/Background";
 
 const Manifesto = dynamic(
@@ -41,6 +40,10 @@ const ContactCTA = dynamic(
   () => import("../components/sections/ContactCTA")
 );
 
+const Footer = dynamic(
+  () => import("../components/layout/Footer")
+);
+
 export default function Home() {
   return (
     <>
@@ -48,27 +51,25 @@ export default function Home() {
 
       <Navbar />
 
-      <main>
-        <Hero />
+      <Hero />
 
-        <Manifesto />
+      <Manifesto />
 
-        <FeaturedCourse />
+      <FeaturedCourse />
 
-        <FeaturedBook />
+      <FeaturedBook />
 
-        <Courses />
+      <Courses />
 
-        <Books />
+      <Books />
 
-        <Notebook />
+      <Notebook />
 
-        <About />
+      <About />
 
-        <Contact />
+      <Contact />
 
-        <ContactCTA />
-      </main>
+      <ContactCTA />
 
       <Footer />
     </>
