@@ -94,10 +94,11 @@ export default function DigitalPaintingPage() {
               <div>
 
                 <Image
-                  src="/courses/digitalc.jpg"
+                  src="/courses/digitalc.webp"
                   alt="الرسم الرقمي"
                   width={1600}
                   height={2000}
+                  sizes="(max-width: 1024px) 100vw, 800px"
                   className="
                     w-full
                     rounded-[36px]

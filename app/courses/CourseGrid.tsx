@@ -12,26 +12,44 @@ const courses = [
       "تعلم الرسم الرقمي من الصفر حتى الاحتراف باستخدام منهج أكاديمي ومشاريع عملية.",
     image: "/courses/digitalc.webp",
     level: "مبتدئ → متقدم",
-    lessons: "42 درس",
+    lessons: "16 درس",
     href: "/courses/digital-painting",
   },
   {
-    title: "أساسيات الرسم",
+    title: "الرسم الأكاديمي والمنظور",
     description:
-      "افهم المنظور، الضوء، الظل، التشريح، والتكوين بطريقة سهلة وعملية.",
+      "افهم المنظور، الضوء والظل، التشريح والتكوين بطريقة منهجية عملية.",
     image: "/courses/drawingom.webp",
-    level: "مبتدئ",
-    lessons: "30 درس",
-    href: "/courses/drawing-basics",
+    level: "مبتدئ → متوسط",
+    lessons: "14 درس",
+    href: "/courses/drawing",
   },
   {
-    title: "نظرية اللون",
+    title: "التصميم الجرافيكي",
     description:
-      "تعلم اختيار الألوان، بناء اللوحات، وتحقيق الانسجام البصري.",
-    image: "/courses/contento.webp",
-    level: "متوسط",
+      "تعلم الهيكل البصري، الشبكات التكوينية، بناء الهويات البصرية والبوسترات.",
+    image: "/courses/designon.webp",
+    level: "جميع المستويات",
     lessons: "18 درس",
-    href: "/courses/color-theory",
+    href: "/courses/design",
+  },
+  {
+    title: "صناعة المحتوى والتسويق",
+    description:
+      "استراتيجيات الهوية الشخصية، إنشاء مقاطع الفيديو، وإدارة الحملات الإعلانية.",
+    image: "/courses/contento.webp",
+    level: "مبتدئ → متقدم",
+    lessons: "12 درس",
+    href: "/courses/marketing",
+  },
+  {
+    title: "الذكاء الاصطناعي للمبدعين",
+    description:
+      "استخدام أدوات الذكاء الاصطناعي التوليدي في إنتاج الأفكار والمفهوم البصري.",
+    image: "/courses/ai.webp",
+    level: "جميع المستويات",
+    lessons: "10 دروس",
+    href: "/courses/ai",
   },
 ];
 
