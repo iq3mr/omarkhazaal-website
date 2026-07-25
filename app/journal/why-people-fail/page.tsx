@@ -63,7 +63,7 @@ export default function WhyPeopleFailArticle() {
             </p>
 
             <blockquote className="border-r-4 border-[#A30018] pr-6 my-10 italic text-xl font-serif text-black leading-9">
-              "السعر لا يعكس بالضرورة قمة الإبداع الجمالي، بل يعكس أحيانًا ندرة العمل وثقل الاسم ورمزية الرمز الأكاديمي."
+              &ldquo;السعر لا يعكس بالضرورة قمة الإبداع الجمالي، بل يعكس أحيانًا ندرة العمل وثقل الاسم ورمزية الرمز الأكاديمي.&rdquo;
             </blockquote>
 
             <h2 className="text-3xl font-bold text-black mt-12">

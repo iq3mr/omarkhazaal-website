@@ -63,7 +63,7 @@ export default function HowToLearnArticle() {
             </p>
 
             <blockquote className="border-r-4 border-[#A30018] pr-6 my-10 italic text-xl font-serif text-black leading-9">
-              "الفن لا يولد في الفراغ، والتاريخ الذي يغفل السياق الاجتماعي والروحي لا يروي سوى نصف الحقيقة."
+              &ldquo;الفن لا يولد في الفراغ، والتاريخ الذي يغفل السياق الاجتماعي والروحي لا يروي سوى نصف الحقيقة.&rdquo;
             </blockquote>
 
             <h2 className="text-3xl font-bold text-black mt-12">

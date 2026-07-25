@@ -1,7 +1,7 @@
 import Navbar from "../../components/layout/Navbar";
 import Footer from "../../components/layout/Footer";
 import Reveal from "../../components/ui/Reveal";
-import { Mail, Instagram, MessageCircle, Send } from "lucide-react";
+import { Mail, ExternalLink, MessageCircle, Send } from "lucide-react";
 
 export default function ContactPage() {
   return (
@@ -98,7 +98,7 @@ export default function ContactPage() {
 
                 <div className="bg-white rounded-[32px] p-8 shadow-md flex items-center gap-6">
                   <div className="w-16 h-16 rounded-2xl bg-[#A30018]/10 text-[#A30018] flex items-center justify-center shrink-0">
-                    <Instagram size={32} />
+                    <ExternalLink size={32} />
                   </div>
                   <div>
                     <h3 className="text-sm font-bold text-neutral-400 uppercase tracking-widest">

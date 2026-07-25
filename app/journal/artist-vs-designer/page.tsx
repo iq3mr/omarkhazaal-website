@@ -63,7 +63,7 @@ export default function ArtistVsDesignerArticle() {
             </p>
 
             <blockquote className="border-r-4 border-[#A30018] pr-6 my-10 italic text-xl font-serif text-black leading-9">
-              "النقد البنّاء لا يقتل الشغف، بل يضيء للفنان الزوايا المعتمة التي لا يراها أثناء لحظة الإنفعال بالرسم."
+              &ldquo;النقد البنّاء لا يقتل الشغف، بل يضيء للفنان الزوايا المعتمة التي لا يراها أثناء لحظة الإنفعال بالرسم.&rdquo;
             </blockquote>
 
             <h2 className="text-3xl font-bold text-black mt-12">
