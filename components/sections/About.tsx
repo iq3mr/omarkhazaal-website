@@ -21,9 +21,10 @@ export default function About() {
             <div className="relative aspect-[4/5] overflow-hidden rounded-[36px]">
 
               <Image
-                src="/about/omar-2026.jpg"
-                alt="Omar Khazaal"
+                src="/about/omar-2026.webp"
+                alt="عمر خزعل"
                 fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
               />
 

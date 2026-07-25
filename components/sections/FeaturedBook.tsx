@@ -77,9 +77,9 @@ export default function FeaturedBook() {
           <Image
             src="/books/3aynaltarbya.webp"
             alt="عين التربية الفنية"
-            width={1800}
-            height={2700}
-            priority
+            width={900}
+            height={1350}
+            sizes="(max-width: 1024px) 100vw, 50vw"
             className="
               w-full
               h-auto

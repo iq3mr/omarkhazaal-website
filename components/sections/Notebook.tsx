@@ -75,6 +75,7 @@ export default function Journal() {
                     alt={post.title}
                     width={900}
                     height={1100}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="aspect-[4/5] object-cover transition duration-700 group-hover:scale-105"
                   />
 

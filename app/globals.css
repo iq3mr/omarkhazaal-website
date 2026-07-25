@@ -114,7 +114,7 @@ svg{
 
 section{
   content-visibility:auto;
-  contain-intrinsic-size:900px;
+  contain-intrinsic-size:auto 600px;
 }
 
 @media (max-width:768px){

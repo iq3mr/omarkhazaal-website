@@ -2,7 +2,6 @@ import dynamic from "next/dynamic";
 
 import Navbar from "../components/layout/Navbar";
 import Hero from "../components/hero/Hero";
-import Background from "../components/background/Background";
 
 const Manifesto = dynamic(
   () => import("../components/sections/Manifesto")
@@ -47,8 +46,6 @@ const Footer = dynamic(
 export default function Home() {
   return (
     <>
-      <Background />
-
       <Navbar />
 
       <Hero />

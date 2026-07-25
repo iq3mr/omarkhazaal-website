@@ -16,17 +16,20 @@ export default function Background() {
           absolute
           -top-52
           -left-52
-          w-[420px]
-          h-[420px]
+          w-[280px]
+          h-[280px]
+          sm:w-[420px]
+          sm:h-[420px]
           md:w-[650px]
           md:h-[650px]
           lg:w-[900px]
           lg:h-[900px]
           rounded-full
-          blur-[70px]
+          blur-[45px]
           md:blur-[120px]
           lg:blur-[180px]
           opacity-20
+          transform-gpu
           will-change-transform
         "
         style={{
@@ -55,17 +58,20 @@ export default function Background() {
           absolute
           -bottom-60
           -right-60
-          w-[420px]
-          h-[420px]
+          w-[280px]
+          h-[280px]
+          sm:w-[420px]
+          sm:h-[420px]
           md:w-[650px]
           md:h-[650px]
           lg:w-[900px]
           lg:h-[900px]
           rounded-full
-          blur-[70px]
+          blur-[45px]
           md:blur-[120px]
           lg:blur-[180px]
           opacity-15
+          transform-gpu
           will-change-transform
         "
         style={{

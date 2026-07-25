@@ -20,6 +20,7 @@ export default function FeaturedCourse() {
               alt="الرسم الرقمي"
               width={900}
               height={1200}
+              sizes="(max-width: 1024px) 100vw, 50vw"
               className="
                 aspect-[4/5]
                 w-full

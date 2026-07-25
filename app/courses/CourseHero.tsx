@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Button from "../../components/ui/Button";
 import Reveal from "../../components/ui/Reveal";
 import Section from "../../components/ui/Section";

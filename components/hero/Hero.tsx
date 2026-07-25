@@ -1,56 +1,20 @@
 
 
+import Image from "next/image";
+
 export default function Hero() {
   return (
     <section className="relative min-h-screen overflow-hidden flex items-center justify-center">
 
-      <div
-        className="
-          absolute
-          -top-52
-          -left-52
-          w-[420px]
-          h-[420px]
-          md:w-[650px]
-          md:h-[650px]
-          lg:w-[900px]
-          lg:h-[900px]
-          rounded-full
-          blur-[120px]
-        "
-        style={{
-          background: "rgba(163,0,24,.08)",
-        }}
-      />
-
-      <div
-        className="
-          absolute
-          -bottom-52
-          -right-52
-          w-[420px]
-          h-[420px]
-          md:w-[650px]
-          md:h-[650px]
-          lg:w-[850px]
-          lg:h-[850px]
-          rounded-full
-          blur-[120px]
-        "
-        style={{
-          background: "rgba(163,0,24,.06)",
-        }}
-      />
-
       <div className="container relative z-10 text-center flex flex-col items-center">
 
-        <img
+        <Image
           src="/eye.webp"
           alt="أكاديمية عمر خزعل"
           width={280}
           height={280}
-          fetchPriority="high"
-          decoding="async"
+          priority
+          sizes="(max-width: 640px) 160px, (max-width: 768px) 208px, (max-width: 1024px) 256px, 288px"
           className="
             w-40
             sm:w-52
