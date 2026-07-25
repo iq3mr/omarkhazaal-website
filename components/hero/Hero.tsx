@@ -1,4 +1,4 @@
-import Button from "../../components/ui/Button";
+
 
 export default function Hero() {
   return (
@@ -93,11 +93,7 @@ export default function Hero() {
           بل أسلوب حياة.
         </p>
 
-        <div className="mt-10 md:mt-14">
-          <Button href="/courses">
-            ابدأ رحلتك
-          </Button>
-        </div>
+        
 
       </div>
 
