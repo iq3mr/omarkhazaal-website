@@ -120,7 +120,7 @@ section{
 @media (max-width:768px){
 
 body::before{
-  opacity:.01;
+  display:none;
 }
 
 }

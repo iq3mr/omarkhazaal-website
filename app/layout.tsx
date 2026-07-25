@@ -6,11 +6,6 @@ import "./globals.css";
 const thmanyahSans = localFont({
   src: [
     {
-      path: "./fonts/ThmanyahSans-Light.woff2",
-      weight: "300",
-      style: "normal",
-    },
-    {
       path: "./fonts/ThmanyahSans-Regular.woff2",
       weight: "400",
       style: "normal",
@@ -37,11 +32,6 @@ const thmanyahSans = localFont({
 
 const thmanyahSerif = localFont({
   src: [
-    {
-      path: "./fonts/ThmanyahSerifDisplay-Light.woff2",
-      weight: "300",
-      style: "normal",
-    },
     {
       path: "./fonts/ThmanyahSerifDisplay-Regular.woff2",
       weight: "400",
