@@ -73,7 +73,10 @@ export default function DigitalPaintingPage() {
                     49$
                   </h2>
 
-                  <button
+                  <a
+                    href="https://wa.me/omarkhazaal.iq"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="
                       rounded-full
                       bg-[#A30018]
@@ -82,10 +85,11 @@ export default function DigitalPaintingPage() {
                       py-4
                       hover:scale-105
                       transition
+                      inline-block
                     "
                   >
                     اشترك الآن
-                  </button>
+                  </a>
 
                 </div>
 

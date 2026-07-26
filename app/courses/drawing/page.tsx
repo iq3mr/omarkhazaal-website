@@ -42,9 +42,9 @@ export default function DrawingCoursePage() {
 
                 <div className="mt-16 flex items-center gap-8">
                   <h2 className="text-5xl font-black text-[#A30018]">39$</h2>
-                  <button className="rounded-full bg-[#A30018] text-white px-10 py-4 font-bold hover:scale-105 transition">
+                  <a href="https://wa.me/omarkhazaal.iq" target="_blank" rel="noopener noreferrer" className="rounded-full bg-[#A30018] text-white px-10 py-4 font-bold hover:scale-105 transition inline-block">
                     اشترك الآن
-                  </button>
+                  </a>
                 </div>
               </div>
             </Reveal>
