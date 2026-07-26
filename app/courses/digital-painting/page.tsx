@@ -178,9 +178,7 @@ export default function DigitalPaintingPage() {
                     {lesson}
                   </h3>
 
-                  <span className="text-neutral-400">
-                    Module
-                  </span>
+                  
 
                 </div>
 

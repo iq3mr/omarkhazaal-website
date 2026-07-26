@@ -127,7 +127,7 @@ export default function DrawingCoursePage() {
                 >
                   <h3 className="text-2xl font-bold">{lesson}</h3>
 
-                  <span className="text-neutral-400 font-medium">Module</span>
+                  
                 </div>
               ))}
             </div>
