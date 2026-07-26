@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: var(--font-sans), sans-serif;
+  --font-serif: var(--font-serif), serif;
+}
+
 :root {
   --background: #F5F2EB;
   --foreground: #151515;
@@ -20,7 +25,12 @@ html{
   -webkit-text-size-adjust:100%;
 }
 
-body{
+body,
+button,
+input,
+textarea,
+select,
+optgroup {
   position:relative;
   background:var(--background);
   color:var(--foreground);
@@ -66,7 +76,11 @@ button{
 h1,
 h2,
 h3,
-.display{
+h4,
+h5,
+h6,
+.display,
+.font-serif {
   font-family:var(--font-title);
   line-height:1.08;
 }
