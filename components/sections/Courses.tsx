@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 
 const courses = [
@@ -10,6 +11,7 @@ const courses = [
     description:
       "تعلم أسس الرسم الأكاديمي والمنظور والتشريح والظل والنور بطريقة منهجية.",
     image: "/courses/drawingom.webp",
+    href: "/courses/drawing",
   },
   {
     title: "الرسم الرقمي",
@@ -17,6 +19,7 @@ const courses = [
     description:
       "احتراف الرسم الرقمي باستخدام أحدث البرامج وأفضل أساليب العمل.",
     image: "/courses/digitalc.webp",
+    href: "/courses/digital-painting",
   },
   {
     title: "التصميم الجرافيكي",
@@ -24,6 +27,7 @@ const courses = [
     description:
       "تعلم تصميم الهوية البصرية والملصقات والمنشورات بطريقة احترافية.",
     image: "/courses/designon.webp",
+    href: "/courses/design",
   },
   {
     title: "صناعة المحتوى",
@@ -31,6 +35,7 @@ const courses = [
     description:
       "كيف تبني محتوى احترافياً يجذب الجمهور ويصنع هوية شخصية قوية.",
     image: "/courses/contento.webp",
+    href: "/courses/marketing",
   },
   {
     title: "التسويق الرقمي",
@@ -38,6 +43,7 @@ const courses = [
     description:
       "إعلانات Meta واستراتيجيات النمو وإدارة الحملات التسويقية.",
     image: "/courses/marketing.webp",
+    href: "/courses/marketing",
   },
   {
     title: "الذكاء الاصطناعي للمبدعين",
@@ -45,6 +51,7 @@ const courses = [
     description:
       "استخدام أدوات الذكاء الاصطناعي في التصميم وصناعة المحتوى.",
     image: "/courses/ai.webp",
+    href: "/courses/ai",
   },
 ];
 
@@ -142,9 +149,11 @@ export default function Courses() {
                   {course.description}
                 </p>
 
-                <button
+                <Link
+                  href={course.href}
                   className="
                     mt-8
+                    inline-block
                     rounded-full
                     border
                     border-[#A30018]
@@ -158,7 +167,7 @@ export default function Courses() {
                   "
                 >
                   استكشف الدورة
-                </button>
+                </Link>
 
               </div>
 
