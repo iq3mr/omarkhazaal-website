@@ -39,8 +39,8 @@ export default function About() {
             viewport={{ once: true }}
           >
 
-            <p className="text-[#A30018] tracking-[6px] uppercase text-sm">
-              About
+            <p className="text-[#A30018] tracking-[6px] text-sm">
+              من انا؟
             </p>
 
             <h2 className="mt-6 text-5xl md:text-7xl font-black leading-tight">

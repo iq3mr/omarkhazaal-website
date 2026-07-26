@@ -65,9 +65,9 @@ export default function Courses() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 0.45 }}
-          className="text-[#A30018] tracking-[6px] uppercase text-sm"
+          className="text-[#A30018] tracking-[6px] text-sm"
         >
-          Courses
+          الدورات
         </motion.p>
 
         <motion.h2

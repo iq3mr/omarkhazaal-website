@@ -39,8 +39,8 @@ export default function FeaturedCourse() {
 
           <Reveal>
 
-            <p className="text-[#A30018] tracking-[8px] uppercase text-sm">
-              Featured Course
+            <p className="text-[#A30018] tracking-[8px] text-sm">
+              الدورات المتاحة
             </p>
 
           </Reveal>

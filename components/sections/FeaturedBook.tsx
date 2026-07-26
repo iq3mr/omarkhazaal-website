@@ -15,8 +15,8 @@ export default function FeaturedBook() {
         <div className="order-2 lg:order-1">
 
           <Reveal>
-            <p className="text-[#A30018] tracking-[8px] uppercase text-sm">
-              Featured Book
+            <p className="text-[#A30018] tracking-[8px] text-sm">
+              يصدر قريباً
             </p>
           </Reveal>
 
