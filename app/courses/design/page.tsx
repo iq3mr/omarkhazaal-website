@@ -46,7 +46,7 @@ export default function DesignCoursePage() {
                   <h2 className="text-5xl font-black text-[#A30018]">59$</h2>
 
                   <a
-                    href="https://wa.me/omarkhazaal.iq"
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSdx88xZ3ODj_1NwOox-7M0bZvWpFMVLiulmKmmZpsXOuvB9CQ/viewform?usp=dialog"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="
