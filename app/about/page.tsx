@@ -73,8 +73,8 @@ export default function AboutPage() {
 
                 <Reveal delay={0.2}>
                   <div className="p-6 rounded-3xl bg-[#F8F6F1]">
-                    <h3 className="text-5xl font-black text-[#A30018]">+1000</h3>
-                    <p className="mt-2 text-neutral-600 font-medium">طالب ومتدرب</p>
+                    <h3 className="text-5xl font-black text-[#A30018]">+650</h3>
+                    <p className="mt-2 text-neutral-600 font-medium">مشترك</p>
                   </div>
                 </Reveal>
 
