@@ -68,17 +68,17 @@ export default function About() {
 
               <div>
                 <h3 className="text-5xl font-black text-[#A30018]">
-                  +1000
+                  +650
                 </h3>
 
                 <p className="mt-2 text-neutral-600">
-                  طالب ومتدرب
+                  مشترك 
                 </p>
               </div>
 
               <div>
                 <h3 className="text-5xl font-black text-[#A30018]">
-                  +50
+                  +20
                 </h3>
 
                 <p className="mt-2 text-neutral-600">

@@ -11,8 +11,8 @@ export default function Manifesto() {
 
         <Reveal>
 
-          <p className="text-[#A30018] tracking-[8px] uppercase text-sm">
-            Manifesto
+          <p className="text-[#A30018] tracking-[8px] text-sm">
+            الرؤية
           </p>
 
         </Reveal>
