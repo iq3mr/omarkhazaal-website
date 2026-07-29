@@ -28,7 +28,7 @@ export default function DrawingCoursePage() {
                 <div className="mt-12 flex flex-wrap gap-10">
                   <div>
                     <span className="text-neutral-500 text-sm">المستوى</span>
-                    <h3 className="mt-2 text-2xl font-bold">مبتدئ - متوسط</h3>
+                    <h3 className="mt-2 text-2xl font-bold">مبتدئ - محترف</h3>
                   </div>
 
                   <div>
