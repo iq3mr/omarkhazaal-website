@@ -51,6 +51,24 @@ const courses = [
     lessons: "10 دروس",
     href: "/courses/ai",
   },
+  {
+    title: "منهجية البحث العلمي",
+    description:
+      "دورة متخصصة لتعليم كتابة وإعداد البحوث العلمية والرسائل الأكاديمية في الفنون التشكيلية.",
+    image: "/courses/research.webp",
+    level: "متوسط",
+    lessons: "12 درس",
+    href: "/courses/art-research",
+  },
+  {
+    title: "برامج أوفيس الأساسية",
+    description:
+      "تعلم استخدام برامج Microsoft Office (Word, Excel, PowerPoint) لتسهيل العمل والدراسة.",
+    image: "/courses/office.webp",
+    level: "مبتدئ",
+    lessons: "18 درس",
+    href: "/courses/office",
+  },
 ];
 
 export default function CourseGrid() {

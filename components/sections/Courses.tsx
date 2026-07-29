@@ -30,28 +30,36 @@ const courses = [
     href: "/courses/design",
   },
   {
-    title: "صناعة المحتوى",
-    category: "Content",
+    title: "صناعة المحتوى والتسويق",
+    category: "Content & Marketing",
     description:
-      "كيف تبني محتوى احترافياً يجذب الجمهور ويصنع هوية شخصية قوية.",
+      "كيف تبني محتوى احترافياً يجذب الجمهور ويصنع هوية شخصية وحملات نمو ناجحة.",
     image: "/courses/contento.webp",
-    href: "/courses/marketing",
-  },
-  {
-    title: "التسويق الرقمي",
-    category: "Marketing",
-    description:
-      "إعلانات Meta واستراتيجيات النمو وإدارة الحملات التسويقية.",
-    image: "/courses/marketing.webp",
     href: "/courses/marketing",
   },
   {
     title: "الذكاء الاصطناعي للمبدعين",
     category: "AI",
     description:
-      "استخدام أدوات الذكاء الاصطناعي في التصميم وصناعة المحتوى.",
+      "استخدام أدوات الذكاء الاصطناعي في التصميم وصناعة المحتوى وتطوير الأفكار.",
     image: "/courses/ai.webp",
     href: "/courses/ai",
+  },
+  {
+    title: "منهجية البحث العلمي",
+    category: "Research",
+    description:
+      "تعلم كتابة وإعداد البحوث والرسائل العلمية في الفنون التشكيلية وفق الأسس الجامعية.",
+    image: "/courses/research.webp",
+    href: "/courses/art-research",
+  },
+  {
+    title: "برامج أوفيس الأساسية",
+    category: "Office",
+    description:
+      "دورة عملية لتعليم استخدام برامج Microsoft Office (Word, Excel, PowerPoint) بكفاءة واحترافية.",
+    image: "/courses/office.webp",
+    href: "/courses/office",
   },
 ];
 
