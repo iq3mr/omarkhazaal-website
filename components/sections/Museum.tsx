@@ -6,15 +6,15 @@ import { motion } from "framer-motion";
 const wings = [
   {
     tag: "GALLERY I",
-    title: "أجنحة الدورات الأكاديمية",
+    title: "الدورات الأكاديمية",
     description: "مسارات تعليمية متكاملة في الرسم الأكاديمي، الرسم الرقمي، التصميم الجرافيكي، الذكاء الاصطناعي، والبحث العلمي.",
     link: "/courses",
-    linkText: "دخول جناح الدورات ←",
+    linkText: "الدخول الى الدورات ←",
     badge: "7 مسارات متخصصة",
   },
   {
     tag: "LIBRARY II",
-    title: "مكتبة المؤلفات النادرة",
+    title: "مكتبة المؤلفات",
     description: "مجموعة من الكتب والكتيبات المنهجية المكتوبة بعناية لتشريح الفنون وفلسفة الرؤية البصرية والمنظور.",
     link: "/books",
     linkText: "استكشف المكتبة ←",
@@ -51,7 +51,7 @@ export default function Museum() {
             transition={{ duration: 0.6 }}
             className="mt-4 text-4xl md:text-6xl font-black text-[#121212]"
           >
-            أجنحة الأكاديمية والمعرض
+            الأكاديمية والمعرض
           </motion.h2>
 
           <p className="mt-6 text-lg text-neutral-600 font-serif leading-8">

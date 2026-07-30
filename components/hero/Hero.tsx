@@ -14,7 +14,7 @@ export default function Hero() {
         {/* Museum Plaque Badge */}
         <div className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full museum-plaque text-[#E5DDD0] text-xs md:text-sm font-medium tracking-widest uppercase mb-10 shadow-xl border border-[#C5A059]/30">
           <span className="w-2 h-2 rounded-full bg-[#A30018] animate-pulse" />
-          <span>أكاديمية عمر خزعل — صرح الفن التشكيلي والبحث الأكاديمي</span>
+          <span>أكاديمية عمر خزعل — حيث الفن التشكيلي والبحث الأكاديمي</span>
         </div>
 
         {/* Central Artwork Showcase */}
@@ -78,9 +78,9 @@ export default function Hero() {
             font-serif
           "
         >
-          تعليم منهجي وتدريب عملي رفيع المستوى
+          تعليم منهجي وتدريب عملي لجميع المستويات
           <br />
-          <span className="text-[#A30018] font-bold">في الفنون المرئية، الرؤية النقدية، وصناعة المحتوى</span>
+          <span className="text-[#A30018] font-bold">في الفنون المرئية، وصناعة المحتوى</span>
         </p>
 
         {/* Action Buttons */}
@@ -104,7 +104,7 @@ export default function Hero() {
               border-[#A30018]
             "
           >
-            استكشف الدورات والمقتنيات
+            استكشف الدورات
           </Link>
 
           <Link
@@ -128,7 +128,7 @@ export default function Hero() {
               duration-300
             "
           >
-            عن الفنان التشكيلي
+            عن الفنان
           </Link>
         </div>
 
