@@ -9,7 +9,7 @@ export default function Manifesto() {
       <div className="max-w-5xl mx-auto text-center relative z-10">
         <Reveal>
           <div className="inline-flex items-center gap-3 px-6 py-2 rounded-full museum-plaque text-[#C5A059] text-xs md:text-sm font-bold tracking-[8px] uppercase mb-8 shadow-md">
-            <span>الرؤية والبيان الفني</span>
+            <span>الرؤية</span>
           </div>
         </Reveal>
 
