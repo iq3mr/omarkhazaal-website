@@ -33,7 +33,7 @@ export default function Books() {
           viewport={{ once: true }}
           className="text-[#A30018] tracking-[8px] uppercase text-xs md:text-sm font-bold"
         >
-          RARE LIBRARY & PUBLICATIONS
+          LIBRARY & PUBLICATIONS
         </motion.p>
 
         <motion.h2
