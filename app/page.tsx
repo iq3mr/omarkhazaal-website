@@ -7,6 +7,10 @@ const Manifesto = dynamic(
   () => import("../components/sections/Manifesto")
 );
 
+const Museum = dynamic(
+  () => import("../components/sections/Museum")
+);
+
 const FeaturedCourse = dynamic(
   () => import("../components/sections/FeaturedCourse")
 );
@@ -51,6 +55,8 @@ export default function Home() {
       <Hero />
 
       <Manifesto />
+
+      <Museum />
 
       <FeaturedCourse />
 
