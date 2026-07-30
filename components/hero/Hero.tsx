@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
+import DraggableEye from "../ui/DraggableEye";
 
 export default function Hero() {
   return (
@@ -17,32 +17,8 @@ export default function Hero() {
           <span>حيث الفن التشكيلي والبحث الأكاديمي</span>
         </div>
 
-        {/* Central Artwork Showcase */}
-        <div className="relative group">
-          {/* Subtle Outer Glowing Frame */}
-          <div className="absolute -inset-4 rounded-full bg-gradient-to-r from-[#A30018]/20 via-[#C5A059]/20 to-[#A30018]/20 blur-xl opacity-70 group-hover:opacity-100 transition duration-700 pointer-events-none" />
-          
-          <Image
-            src="/eye.webp"
-            alt="أكاديمية عمر خزعل"
-            width={320}
-            height={320}
-            priority
-            sizes="(max-width: 640px) 180px, (max-width: 768px) 240px, (max-width: 1024px) 280px, 320px"
-            className="
-              relative
-              w-44
-              sm:w-56
-              md:w-68
-              lg:w-80
-              h-auto
-              drop-shadow-[0_15px_35px_rgba(163,0,24,.35)]
-              transition-transform
-              duration-700
-              group-hover:scale-105
-            "
-          />
-        </div>
+        {/* Central Artwork Showcase - Interactive Draggable Eye */}
+        <DraggableEye />
 
         {/* Title */}
         <h1
