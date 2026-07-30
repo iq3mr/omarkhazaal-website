@@ -114,14 +114,15 @@ export default function Books() {
                       items-center
                       gap-2
                       rounded-full
-                      bg-[#121212]
+                      bg-[#A30018]
                       text-white
+                      !text-white
                       px-8
                       py-3.5
                       font-bold
                       transition-all
                       duration-300
-                      hover:bg-[#A30018]
+                      hover:bg-[#800013]
                       shadow-md
                     "
                   >

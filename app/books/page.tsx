@@ -114,7 +114,7 @@ export default function BooksPage() {
                     </div>
 
                     <div className="mt-12 flex flex-wrap gap-4">
-                      <button className="rounded-full bg-[#151515] text-white px-8 py-4 text-base font-semibold hover:bg-[#A30018] transition">
+                      <button className="rounded-full bg-[#A30018] text-white !text-white px-8 py-4 text-base font-bold hover:bg-[#800013] transition shadow-md">
                         استعراض تفاصيل الكتاب
                       </button>
                       <button className="rounded-full border border-neutral-300 text-neutral-700 px-8 py-4 text-base font-semibold hover:border-black transition">

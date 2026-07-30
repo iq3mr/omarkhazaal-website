@@ -54,12 +54,13 @@ export default function FeaturedBook() {
                   px-10
                   py-4
                   rounded-full
-                  bg-[#121212]
+                  bg-[#A30018]
                   text-white
+                  !text-white
                   font-bold
                   text-lg
                   shadow-lg
-                  hover:bg-[#A30018]
+                  hover:bg-[#800013]
                   hover:scale-105
                   transition-all
                   duration-300
