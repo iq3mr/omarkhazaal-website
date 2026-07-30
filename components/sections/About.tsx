@@ -49,7 +49,7 @@ export default function About() {
             </h2>
 
             <p className="mt-8 text-lg md:text-xl leading-9 md:leading-10 text-neutral-700 font-serif">
-              فنان تشكيلي، ومدرس تربية فنية، وباحث في تعليم الفنون التشكيلية، يعمل على تطوير المحتوى العربي الأكاديمي في مجالات الرسم، التصميم، والثقافة البصرية، من خلال تجربة جمعت بين سنوات الأستاذية والتطبيق المعاصر.
+              فنان تشكيلي ومدرس تربية فنية, باحث في الفنون التشكيلية يعمل على تطوير العربي في نفس المجال من خلال تجربة تجمع بين سنوات الدراسة و التطبيق العملي.
             </p>
 
             <div className="grid grid-cols-2 gap-6 mt-12 p-6 rounded-3xl bg-[#FAF8F3] border border-[#C5A059]/20 museum-frame-shadow">
