@@ -32,13 +32,13 @@ export default function FeaturedBook() {
           <Reveal delay={0.3}>
             <div className="grid grid-cols-2 gap-8 mt-10 p-6 rounded-3xl bg-white/80 border border-[#C5A059]/20 museum-frame-shadow">
               <div>
-                <h3 className="text-4xl font-black text-[#A30018]">150</h3>
+                <h3 className="text-4xl font-black text-[#A30018]">+150</h3>
                 <p className="mt-1 text-sm font-bold text-neutral-600">صفحة ملونة</p>
               </div>
 
               <div>
                 <h3 className="text-4xl font-black text-[#121212]">12</h3>
-                <p className="mt-1 text-sm font-bold text-neutral-600">مرحلة إبداعية</p>
+                <p className="mt-1 text-sm font-bold text-neutral-600">مرحلة دراسية</p>
               </div>
             </div>
           </Reveal>
