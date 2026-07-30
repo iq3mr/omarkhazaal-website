@@ -3,19 +3,19 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Palette, Award, Sparkles, Move, BookOpen, GraduationCap } from "lucide-react";
+import { Palette, Award, Sparkles, BookOpen, GraduationCap } from "lucide-react";
 import Sticker from "./Sticker";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[92vh] flex flex-col items-center justify-center pt-32 pb-20 overflow-hidden bg-white text-neutral-900">
+    <section className="relative min-h-[92vh] flex flex-col items-center justify-center pt-32 pb-24 overflow-hidden bg-white text-neutral-900">
       {/* Subtle background radial ambient glow in Red */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-red-500/5 rounded-full blur-[120px] pointer-events-none" />
 
       {/* Clean subtle dot grid pattern */}
       <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#111_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
 
-      {/* Main Container */}
+      {/* Main Content Container */}
       <div className="container relative z-10 text-center flex flex-col items-center max-w-5xl px-4">
         
         {/* Plaque / Badge */}
@@ -27,17 +27,6 @@ export default function Hero() {
         >
           <span className="w-2 h-2 rounded-full bg-red-600 animate-pulse" />
           <span>حيث الفن التشكيلي والبحث الأكاديمي</span>
-        </motion.div>
-
-        {/* Drag Hint Indicator */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.2, duration: 0.4 }}
-          className="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-md bg-neutral-100 text-neutral-600 text-xs font-medium border border-neutral-200 shadow-2xs cursor-default"
-        >
-          <Move className="w-3.5 h-3.5 text-red-600 animate-bounce" />
-          <span>يمكنك تحريك وسحب عناصر الصفحة بالماوس أو اللمس</span>
         </motion.div>
 
         {/* Title */}
@@ -151,66 +140,51 @@ export default function Hero() {
       </div>
 
       {/* ======================================================== */}
-      {/* INTERACTIVE DRAGGABLE STICKERS Surrounding the Content   */}
-      {/* Mobile & Desktop Mouse / Touch Drag Supported           */}
+      {/* INTERACTIVE DRAGGABLE STICKERS (DESKTOP & MOBILE TOUCH)  */}
+      {/* Absolute CSS positioning prevents jumping or snapping    */}
       {/* ======================================================== */}
 
-      {/* 1. THE EYE EMBLEM STICKER (MAIN INTERACTIVE PIECE) */}
+      {/* 1. THE EYE EMBLEM STICKER (DESKTOP & TABLET) */}
       <Sticker
         initialRotate={-12}
-        initialX="-38vw"
-        initialY="-180px"
-        badge="عين الأكاديمية 👁️"
-        badgeColor="bg-red-600"
-        className="top-1/2 left-1/2 hidden md:block"
+        className="top-[18%] left-[5%] hidden md:block"
       >
-        <div className="relative p-4 rounded-3xl bg-white border-2 border-neutral-900 shadow-2xl hover:border-red-600 transition-colors group">
+        <div className="p-4 rounded-3xl bg-white border-2 border-neutral-900 shadow-2xl hover:border-red-600 transition-colors group">
           <Image
             src="/eye.webp"
             alt="شعار عين عمر خزعل"
             width={180}
             height={180}
             priority
-            className="w-32 lg:w-44 h-auto drop-shadow-md group-hover:scale-105 transition-transform"
+            className="w-32 lg:w-40 h-auto drop-shadow-md group-hover:scale-105 transition-transform"
           />
-          <div className="mt-2 text-center text-[11px] font-bold text-neutral-700 bg-neutral-100 py-1 px-2 rounded-lg">
-            اسحبني بالماوس أو اللمس!
-          </div>
         </div>
       </Sticker>
 
-      {/* Mobile-friendly Eye Sticker */}
+      {/* 2. THE EYE EMBLEM STICKER (MOBILE TOUCH) */}
       <Sticker
         initialRotate={-8}
-        initialX="0px"
-        initialY="-260px"
-        badge="اسحب العين 👁️"
-        badgeColor="bg-red-600"
-        className="top-1/2 left-1/2 md:hidden -translate-x-1/2"
+        className="top-[6%] left-[4%] md:hidden"
       >
-        <div className="p-3 rounded-2xl bg-white border-2 border-neutral-900 shadow-xl">
+        <div className="p-2.5 rounded-2xl bg-white border-2 border-neutral-900 shadow-xl">
           <Image
             src="/eye.webp"
             alt="شعار عين عمر خزعل"
-            width={120}
-            height={120}
+            width={100}
+            height={100}
             priority
-            className="w-24 h-auto drop-shadow-sm"
+            className="w-20 h-auto drop-shadow-xs"
           />
         </div>
       </Sticker>
 
-      {/* 2. ART PALETTE STICKER */}
+      {/* 3. ART PALETTE STICKER (DESKTOP) */}
       <Sticker
         initialRotate={14}
-        initialX="36vw"
-        initialY="-190px"
-        badge="ورش عمل"
-        badgeColor="bg-neutral-900"
-        className="top-1/2 left-1/2 hidden md:block"
+        className="top-[18%] right-[5%] hidden md:block"
       >
-        <div className="p-5 rounded-3xl bg-white border-2 border-neutral-200 shadow-xl flex items-center gap-3 hover:border-red-500 transition-colors">
-          <div className="w-12 h-12 rounded-2xl bg-red-100 flex items-center justify-center text-red-600">
+        <div className="p-4 sm:p-5 rounded-3xl bg-white border-2 border-neutral-200 shadow-xl flex items-center gap-3 hover:border-red-500 transition-colors">
+          <div className="w-11 h-11 rounded-2xl bg-red-100 flex items-center justify-center text-red-600">
             <Palette className="w-6 h-6" />
           </div>
           <div className="text-right">
@@ -220,14 +194,25 @@ export default function Hero() {
         </div>
       </Sticker>
 
-      {/* 3. ACADEMY CERTIFICATE / MEDAL STICKER */}
+      {/* 4. ART PALETTE STICKER (MOBILE) */}
+      <Sticker
+        initialRotate={10}
+        className="top-[6%] right-[4%] md:hidden"
+      >
+        <div className="p-2.5 rounded-2xl bg-white border-2 border-neutral-200 shadow-lg flex items-center gap-2">
+          <div className="w-8 h-8 rounded-xl bg-red-100 flex items-center justify-center text-red-600">
+            <Palette className="w-4 h-4" />
+          </div>
+          <div className="text-right">
+            <h4 className="text-xs font-black text-neutral-900">ورش فنية</h4>
+          </div>
+        </div>
+      </Sticker>
+
+      {/* 5. ACADEMY CERTIFICATE / MEDAL STICKER */}
       <Sticker
         initialRotate={-10}
-        initialX="38vw"
-        initialY="60px"
-        badge="شهادة معتمدة"
-        badgeColor="bg-red-600"
-        className="top-1/2 left-1/2 hidden lg:block"
+        className="top-[54%] right-[4%] hidden lg:block"
       >
         <div className="p-4 rounded-3xl bg-neutral-900 text-white border-2 border-neutral-900 shadow-xl flex items-center gap-3">
           <div className="w-10 h-10 rounded-xl bg-red-600 flex items-center justify-center text-white">
@@ -240,16 +225,12 @@ export default function Hero() {
         </div>
       </Sticker>
 
-      {/* 4. FINE ART MANIFESTO QUOTE STICKER */}
+      {/* 6. FINE ART MANIFESTO QUOTE STICKER */}
       <Sticker
         initialRotate={8}
-        initialX="-40vw"
-        initialY="80px"
-        badge="رؤية فنية"
-        badgeColor="bg-neutral-800"
-        className="top-1/2 left-1/2 hidden lg:block"
+        className="top-[54%] left-[4%] hidden lg:block"
       >
-        <div className="p-4 max-w-[210px] rounded-2xl bg-red-600 text-white shadow-xl text-right">
+        <div className="p-4 max-w-[200px] rounded-2xl bg-red-600 text-white shadow-xl text-right">
           <div className="flex items-center gap-1.5 mb-1 text-red-100">
             <Sparkles className="w-4 h-4" />
             <span className="text-[11px] font-bold">فلسفة الأكاديمية</span>
@@ -260,12 +241,10 @@ export default function Hero() {
         </div>
       </Sticker>
 
-      {/* 5. COURSES & BOOKS FLOATING BADGE STICKER */}
+      {/* 7. COURSES & BOOKS FLOATING STICKER */}
       <Sticker
         initialRotate={-6}
-        initialX="-28vw"
-        initialY="240px"
-        className="top-1/2 left-1/2 hidden md:block"
+        className="bottom-[6%] left-[10%] hidden md:block"
       >
         <div className="p-3.5 rounded-2xl bg-white border border-neutral-300 shadow-lg flex items-center gap-3">
           <div className="w-9 h-9 rounded-xl bg-red-50 text-red-600 flex items-center justify-center">
@@ -278,12 +257,10 @@ export default function Hero() {
         </div>
       </Sticker>
 
-      {/* 6. GRADUATION CAP STICKER */}
+      {/* 8. GRADUATION CAP STICKER */}
       <Sticker
         initialRotate={12}
-        initialX="28vw"
-        initialY="230px"
-        className="top-1/2 left-1/2 hidden md:block"
+        className="bottom-[6%] right-[10%] hidden md:block"
       >
         <div className="p-3.5 rounded-2xl bg-white border border-neutral-300 shadow-lg flex items-center gap-3">
           <div className="w-9 h-9 rounded-xl bg-neutral-900 text-white flex items-center justify-center">

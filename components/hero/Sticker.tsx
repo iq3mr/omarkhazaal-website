@@ -1,17 +1,14 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 
 interface StickerProps {
   children: React.ReactNode;
   className?: string;
   initialRotate?: number;
-  initialX?: number | string;
-  initialY?: number | string;
   badge?: string;
   badgeColor?: string;
-  onClick?: () => void;
   style?: React.CSSProperties;
 }
 
@@ -19,71 +16,49 @@ export default function Sticker({
   children,
   className = "",
   initialRotate = 0,
-  initialX = 0,
-  initialY = 0,
   badge,
   badgeColor = "bg-red-600",
-  onClick,
   style,
 }: StickerProps) {
-  const [isDragging, setIsDragging] = useState(false);
-  const constraintsRef = useRef<HTMLDivElement>(null);
-
   return (
     <motion.div
-      ref={constraintsRef}
       drag
-      dragElastic={0.15}
-      dragMomentum={true}
-      dragTransition={{ bounceStiffness: 300, bounceDamping: 20 }}
+      dragSnapToOrigin={false}
+      dragMomentum={false}
+      dragElastic={0.05}
       initial={{
         rotate: initialRotate,
-        x: initialX,
-        y: initialY,
         opacity: 0,
-        scale: 0.8,
+        scale: 0.85,
       }}
       animate={{
         opacity: 1,
         scale: 1,
-        rotate: initialRotate,
       }}
       whileHover={{
-        scale: 1.06,
-        rotate: initialRotate * 0.5,
+        scale: 1.05,
         zIndex: 40,
-        filter: "drop-shadow(0 20px 25px rgba(220, 38, 38, 0.15))",
+        filter: "drop-shadow(0 20px 25px rgba(220, 38, 38, 0.18))",
       }}
       whileDrag={{
-        scale: 1.12,
-        rotate: 0,
+        scale: 1.1,
         zIndex: 50,
         cursor: "grabbing",
-        filter: "drop-shadow(0 30px 40px rgba(0, 0, 0, 0.22))",
-      }}
-      onDragStart={() => setIsDragging(true)}
-      onDragEnd={() => setIsDragging(false)}
-      onClick={() => {
-        if (!isDragging && onClick) {
-          onClick();
-        }
+        filter: "drop-shadow(0 25px 35px rgba(0, 0, 0, 0.25))",
       }}
       style={
         {
           touchAction: "none",
           userSelect: "none",
           WebkitUserSelect: "none",
-          WebkitUserDrag: "none",
+          cursor: "grab",
           ...style,
         } as React.CSSProperties
       }
       className={`
         absolute
-        cursor-grab
         will-change-transform
         select-none
-        transition-shadow
-        duration-300
         ${className}
       `}
     >
