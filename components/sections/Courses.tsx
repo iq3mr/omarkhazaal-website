@@ -72,7 +72,7 @@ const courses = [
 
 export default function Courses() {
   return (
-    <section className="py-32 md:py-40 bg-[#F5F2EB] relative" id="courses">
+    <section className="py-32 md:py-40 bg-white relative" id="courses">
       <div className="container">
         <motion.p
           initial={{ opacity: 0, y: 20 }}

@@ -7,7 +7,7 @@ export default function MarketingCoursePage() {
     <>
       <Navbar />
 
-      <main className="bg-[#F8F6F1]">
+      <main className="bg-white">
         {/* Hero */}
         <section className="pt-44 pb-28">
           <div className="container">

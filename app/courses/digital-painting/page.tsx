@@ -7,7 +7,7 @@ export default function DigitalPaintingPage() {
     <>
       <Navbar />
 
-      <main className="bg-[#F8F6F1]">
+      <main className="bg-white">
 
         {/* Hero */}
 

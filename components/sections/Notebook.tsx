@@ -30,7 +30,7 @@ const posts = [
 
 export default function Journal() {
   return (
-    <section className="py-32 md:py-44 bg-[#F5F2EB] relative">
+    <section className="py-32 md:py-44 bg-white relative">
       <div className="container">
         <motion.p
           initial={{ opacity: 0, y: 20 }}

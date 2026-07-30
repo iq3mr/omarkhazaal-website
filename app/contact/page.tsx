@@ -8,7 +8,7 @@ export default function ContactPage() {
     <>
       <Navbar />
 
-      <main className="bg-[#F8F6F1] min-h-screen pt-44 pb-36">
+      <main className="bg-white min-h-screen pt-44 pb-36">
         <div className="container max-w-5xl">
           <Reveal>
             <div className="text-center max-w-3xl mx-auto">

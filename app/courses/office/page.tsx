@@ -9,7 +9,7 @@ export default function OfficeCourse() {
     <>
       <Navbar />
 
-      <main className="bg-[#F5F2EB] min-h-screen">
+      <main className="bg-white min-h-screen">
         {/* Hero */}
         <section className="container pt-44 pb-24">
           <Link

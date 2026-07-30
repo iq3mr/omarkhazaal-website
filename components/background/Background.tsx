@@ -7,7 +7,7 @@ export default function Background() {
     <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
 
       {/* الخلفية الأساسية */}
-      <div className="absolute inset-0 bg-[#F5F2EB]" />
+      <div className="absolute inset-0 bg-white" />
 
       {/* توهج أحمر علوي */}
       <motion.div

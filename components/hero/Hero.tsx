@@ -3,7 +3,7 @@ import DraggableEye from "../ui/DraggableEye";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen overflow-hidden flex items-center justify-center pt-32 pb-20">
+    <section className="relative min-h-screen overflow-visible flex items-center justify-center pt-32 pb-20">
       {/* Museum Ambient Spotlight Lighting */}
       <div className="absolute inset-0 spotlight-glow pointer-events-none" />
 
@@ -132,7 +132,7 @@ export default function Hero() {
         <div className="w-[2px] h-12 bg-gradient-to-b from-[#C5A059] to-transparent" />
       </div>
 
-      <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-b from-transparent to-[#F5F2EB] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-b from-transparent to-white pointer-events-none" />
     </section>
   );
 }

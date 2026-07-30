@@ -30,10 +30,10 @@ export default function DraggableEye({
 }: DraggableEyeProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [constraints, setConstraints] = useState({
-    left: -300,
-    right: 300,
-    top: -200,
-    bottom: 400,
+    left: -1000,
+    right: 1000,
+    top: -1000,
+    bottom: 5000,
   });
 
   // Motion values for smooth 2D positioning & velocity-driven rotation
@@ -73,21 +73,34 @@ export default function DraggableEye({
     }, inactivityTimeoutMs);
   }, [inactivityTimeoutMs, returnToOrigin]);
 
-  // Calculate viewport boundaries relative to initial component position
+  // Calculate full document boundaries so Eye can be dragged across the ENTIRE page
   const updateConstraints = useCallback(() => {
     if (!containerRef.current) return;
     const rect = containerRef.current.getBoundingClientRect();
-    const windowWidth = window.innerWidth;
-    const windowHeight = window.innerHeight;
+    const scrollY = window.scrollY || window.pageYOffset;
+    const scrollX = window.scrollX || window.pageXOffset;
 
-    // Margin padding from screen edges
+    const docHeight = Math.max(
+      document.documentElement.scrollHeight,
+      document.body.scrollHeight,
+      window.innerHeight
+    );
+    const docWidth = Math.max(
+      document.documentElement.scrollWidth,
+      document.body.scrollWidth,
+      window.innerWidth
+    );
+
+    const absoluteTop = rect.top + scrollY;
+    const absoluteLeft = rect.left + scrollX;
+
     const padding = 20;
 
     setConstraints({
-      left: -(rect.left - padding),
-      right: windowWidth - (rect.right + padding),
-      top: -(rect.top - padding),
-      bottom: windowHeight - (rect.bottom + padding),
+      left: -(absoluteLeft - padding),
+      right: docWidth - (absoluteLeft + rect.width + padding),
+      top: -(absoluteTop - padding),
+      bottom: docHeight - (absoluteTop + rect.height + padding),
     });
   }, []);
 
@@ -119,11 +132,11 @@ export default function DraggableEye({
   };
 
   return (
-    <div ref={containerRef} className="relative inline-block z-20">
+    <div ref={containerRef} className="relative inline-block z-[100]">
       <motion.div
         drag
         dragConstraints={constraints}
-        dragElastic={0.2}
+        dragElastic={0.15}
         dragSnapToOrigin={false}
         dragTransition={{
           power: 0.25,

@@ -8,7 +8,7 @@ export default function AboutPage() {
     <>
       <Navbar />
 
-      <main className="bg-[#F8F6F1] min-h-screen overflow-hidden">
+      <main className="bg-white min-h-screen overflow-hidden">
         {/* Hero Section */}
         <section className="pt-36 sm:pt-44 pb-16 sm:pb-20 overflow-hidden">
           <div className="container overflow-hidden">

@@ -9,7 +9,7 @@ export default function HowToLearnArticle() {
     <>
       <Navbar />
 
-      <main className="bg-[#F8F6F1] min-h-screen pt-44 pb-36">
+      <main className="bg-white min-h-screen pt-44 pb-36">
         <article className="container max-w-4xl">
           <Reveal>
             <div className="flex items-center gap-4">

@@ -32,7 +32,7 @@ const wings = [
 
 export default function Museum() {
   return (
-    <section className="py-32 bg-[#FAF8F3] relative border-y border-[#C5A059]/20">
+    <section className="py-32 bg-white relative border-y border-[#C5A059]/20">
       <div className="container">
         <div className="text-center max-w-3xl mx-auto mb-20">
           <motion.p

@@ -39,7 +39,7 @@ export default function JournalPage() {
     <>
       <Navbar />
 
-      <main className="bg-[#F8F6F1] min-h-screen">
+      <main className="bg-white min-h-screen">
         {/* Header */}
         <section className="pt-44 pb-20">
           <div className="container text-center max-w-4xl">
