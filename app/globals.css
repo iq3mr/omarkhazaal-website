@@ -6,9 +6,9 @@
 }
 
 :root {
-  --background: #F5F2EB;
-  --foreground: #151515;
-  --red: #A30018;
+  --background: #FFFFFF;
+  --foreground: #111111;
+  --red: #DC2626;
 
   --font-body: var(--font-sans);
   --font-title: var(--font-serif);
