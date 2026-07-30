@@ -33,7 +33,7 @@ export default function ContactCTA() {
         >
           هل لديك مشروع أو استفسار؟
           <br />
-          <span className="text-[#A30018] font-serif">لنصنع الإبداع معاً.</span>
+          <span className="text-[#A30018] font-serif">لنصنع الإبداع معاً</span>
         </motion.h2>
 
         <motion.p
