@@ -135,7 +135,7 @@ export default function Hero() {
         {/* Museum Quick Stats Bar */}
         <div className="grid grid-cols-3 gap-6 sm:gap-12 mt-20 p-6 md:p-8 rounded-3xl bg-white/70 backdrop-blur-md border border-[#C5A059]/30 shadow-xl max-w-4xl w-full">
           <div>
-            <h3 className="text-3xl md:text-5xl font-black text-[#A30018]">+1000</h3>
+            <h3 className="text-3xl md:text-5xl font-black text-[#A30018]">+650</h3>
             <p className="mt-2 text-xs md:text-sm font-bold text-neutral-600 uppercase tracking-wider">طالب ومتدرب</p>
           </div>
 

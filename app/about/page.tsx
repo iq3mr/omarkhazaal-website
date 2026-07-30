@@ -75,7 +75,7 @@ export default function AboutPage() {
 
                 <Reveal delay={0.2}>
                   <div className="p-4 sm:p-6 rounded-3xl bg-[#FAF8F3] border border-[#C5A059]/20 museum-frame-shadow">
-                    <h3 className="text-3xl sm:text-5xl font-black text-[#A30018]">+1000</h3>
+                    <h3 className="text-3xl sm:text-5xl font-black text-[#A30018]">+650</h3>
                     <p className="mt-2 text-neutral-600 font-medium text-xs sm:text-base">طالب ومتدرب</p>
                   </div>
                 </Reveal>
