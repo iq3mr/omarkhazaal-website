@@ -21,9 +21,9 @@ export default function CourseHero() {
         <Reveal delay={0.1}>
 
           <h1 className="mt-8 text-6xl md:text-8xl font-black leading-[1.1]">
-            تعلّم الفن...
+            تعلّم الفن
             <br />
-            كما يجب أن يُتعلَّم.
+            كما ينبغي
           </h1>
 
         </Reveal>
