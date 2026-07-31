@@ -109,7 +109,7 @@ const museumArtworks: Artwork[] = [
     medium: "تمبرا وأوراق الذهب على خشب",
     description: "تجريد العالم المادي لصالح العالم الروحي عبر الخلفيات الذهبية والخطوط العمودية الممتدة.",
     analysis: "إلغاء المنظور المادي التقليدي واستبداله بالمنظور المعكوس (Reverse Perspective) لإشعور الزائر بالحضور الإلهي.",
-    image: "/museum/medieval.webp",
+    image: "/museum/medival.webp",
     color: "#6B3A5D",
     hotspots: [
       { x: 35, y: 50, icon: "✝️", title: "الخلفية الذهبية", note: "إلغاء الزمان والمكان المادي لصالح الضوء النوراني" },
