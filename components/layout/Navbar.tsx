@@ -7,6 +7,7 @@ import { useEffect, useState, useCallback } from "react";
 import { Menu, X } from "lucide-react";
 
 const links = [
+  { name: "المتحف الشخصي", href: "/personal-museum" },
   { name: "الدورات", href: "/courses" },
   { name: "الكتب", href: "/books" },
   { name: "دفترنا", href: "/journal" },
