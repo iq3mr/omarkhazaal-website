@@ -52,24 +52,24 @@ export default function MusicButton({ audioSrc = "/audio/music.ogg" }: MusicButt
       className="
         inline-flex
         items-center
-        gap-3
-        px-6
-        py-2.5
+        gap-2
+        px-4
+        py-1.5
         rounded-full
-        museum-plaque
-        text-[#E5DDD0]
-        text-xs
-        md:text-sm
-        font-bold
-        tracking-widest
-        uppercase
-        mb-10
-        shadow-xl
+        bg-white/20
+        backdrop-blur-md
         border
         border-[#C5A059]/40
-        cursor-pointer
-        hover:scale-105
+        text-[#121212]
+        text-xs
+        font-bold
+        tracking-wider
+        uppercase
+        mb-8
+        shadow-md
+        hover:bg-white/40
         hover:border-[#C5A059]
+        hover:scale-105
         transition-all
         duration-300
         select-none
@@ -77,20 +77,20 @@ export default function MusicButton({ audioSrc = "/audio/music.ogg" }: MusicButt
       title={isPlaying ? "إيقاف الموسيقى" : "تشغيل الموسيقى الخلفية"}
     >
       <span
-        className={`w-2.5 h-2.5 rounded-full transition-colors duration-300 ${
+        className={`w-2 h-2 rounded-full transition-colors duration-300 ${
           isPlaying ? "bg-[#22C55E] animate-pulse" : "bg-[#A30018] animate-ping"
         }`}
       />
 
       {isPlaying ? (
         <>
-          <Volume2 className="w-4 h-4 text-[#22C55E] animate-bounce" />
-          <span>الموسيقى الخلفية قيد التشغيل</span>
+          <Volume2 className="w-3.5 h-3.5 text-[#22C55E]" />
+          <span>الموسيقى تعمل</span>
         </>
       ) : (
         <>
-          <Music className="w-4 h-4 text-[#C5A059]" />
-          <span>تشغيل الموسيقى الخلفية 🎵</span>
+          <Music className="w-3.5 h-3.5 text-[#C5A059]" />
+          <span>تشغيل الموسيقى 🎵</span>
         </>
       )}
     </button>
