@@ -12,7 +12,7 @@ export default function FeaturedBook() {
         {/* النص */}
         <div className="order-2 lg:order-1">
           <Reveal>
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full museum-plaque text-[#C5A059] text-xs font-bold tracking-[6px] uppercase mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full museum-plaque text-[#C5A059] text-xs font-bold uppercase mb-6">
               إصدار المكتبة الوطنية
             </div>
           </Reveal>

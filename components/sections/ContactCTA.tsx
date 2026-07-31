@@ -20,7 +20,7 @@ export default function ContactCTA() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="inline-flex items-center gap-3 px-6 py-2 rounded-full museum-plaque text-[#C5A059] text-xs md:text-sm font-bold tracking-[6px] uppercase mb-8 shadow-xl"
+          className="inline-flex items-center gap-3 px-6 py-2 rounded-full museum-plaque text-[#C5A059] text-xs md:text-sm font-bold uppercase mb-8 shadow-xl"
         >
           <span>JOIN THE ACADEMY</span>
         </motion.div>

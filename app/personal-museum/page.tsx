@@ -205,7 +205,7 @@ export default function PersonalMuseumPage() {
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full museum-plaque border border-[#C5A059]/40 text-[#C5A059] text-sm md:text-base font-bold tracking-[8px] uppercase shadow-2xl"
+            className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full museum-plaque border border-[#C5A059]/40 text-[#C5A059] text-sm md:text-base font-bold uppercase shadow-2xl"
           >
             <Sparkles className="w-4 h-4 text-[#A30018] animate-spin" />
             <span>المتحف الشخصي | معرض تاريخ الفنون</span>

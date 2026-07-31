@@ -37,7 +37,7 @@ export default function FeaturedCourse() {
 
         <div>
           <Reveal>
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#A30018]/10 text-[#A30018] text-xs font-bold tracking-[6px] uppercase mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#A30018]/10 text-[#A30018] text-xs font-bold uppercase mb-6">
               المسار الأكثر طلباً
             </div>
           </Reveal>

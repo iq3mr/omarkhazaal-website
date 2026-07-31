@@ -41,6 +41,14 @@ optgroup {
   text-rendering:optimizeLegibility;
 }
 
+/* Fix for Arabic text letter-spacing disconnection on mobile devices */
+html[dir="rtl"] *,
+[dir="rtl"] *,
+:lang(ar) *,
+.arabic-text {
+  letter-spacing: normal !important;
+}
+
 /* خامة الورق */
 
 body::before{

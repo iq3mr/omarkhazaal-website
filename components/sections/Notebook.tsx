@@ -36,7 +36,7 @@ export default function Journal() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-[#A30018] tracking-[8px] uppercase text-xs md:text-sm font-bold"
+          className="text-[#A30018] uppercase text-xs md:text-sm font-bold"
         >
           CRITICAL ESSAYS & JOURNAL
         </motion.p>

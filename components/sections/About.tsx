@@ -42,7 +42,7 @@ export default function About() {
             transition={{ duration: 0.6 }}
             className="w-full max-w-full overflow-hidden"
           >
-            <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full museum-plaque text-[#C5A059] text-[11px] sm:text-xs font-bold tracking-[4px] sm:tracking-[6px] uppercase mb-6 max-w-full">
+            <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full museum-plaque text-[#C5A059] text-[11px] sm:text-xs font-bold uppercase mb-6 max-w-full">
               سيرة الفنان ومؤسس الأكاديمية
             </div>
 

@@ -15,7 +15,7 @@ export default function AboutPage() {
             <div className="grid lg:grid-cols-2 gap-12 md:gap-16 items-center">
               <Reveal>
                 <div className="max-w-full overflow-hidden">
-                  <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full museum-plaque text-[#C5A059] text-xs font-bold tracking-[4px] sm:tracking-[6px] uppercase mb-6">
+                  <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full museum-plaque text-[#C5A059] text-xs font-bold uppercase mb-6">
                     BIOGRAPHY & VISION
                   </div>
 
