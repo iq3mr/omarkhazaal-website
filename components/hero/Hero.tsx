@@ -1,5 +1,6 @@
 import Link from "next/link";
 import DraggableEye from "../ui/DraggableEye";
+import MusicButton from "../ui/MusicButton";
 
 export default function Hero() {
   return (
@@ -11,11 +12,8 @@ export default function Hero() {
       <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#151515_1px,transparent_1px)] [background-size:32px_32px] pointer-events-none" />
 
       <div className="container relative z-10 text-center flex flex-col items-center max-w-5xl">
-        {/* Museum Plaque Badge */}
-        <div className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full museum-plaque text-[#E5DDD0] text-xs md:text-sm font-medium tracking-widest uppercase mb-10 shadow-xl border border-[#C5A059]/30">
-          <span className="w-2 h-2 rounded-full bg-[#A30018] animate-pulse" />
-          <span>حيث الفن التشكيلي والبحث الأكاديمي</span>
-        </div>
+        {/* Interactive Background Music Button */}
+        <MusicButton audioSrc="/audio/music.ogg" />
 
         {/* Central Artwork Showcase - Interactive Draggable Eye */}
         <DraggableEye />
