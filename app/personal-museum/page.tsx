@@ -6,6 +6,7 @@ import Footer from "../../components/layout/Footer";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Layers, Grid, ZoomIn, Sparkles, RefreshCw, X, Info } from "lucide-react";
+import MusicButton from "../../components/ui/MusicButton";
 
 export interface Artwork {
   id: string;
@@ -29,7 +30,7 @@ const museumArtworks: Artwork[] = [
     id: "art-1",
     title: "رسوم الثيران في كهف لاسكو",
     eraId: "cave",
-    eraNumeral: "I",
+    eraNumeral: "𒁹",
     eraName: "فن الكهوف وما قبل التاريخ",
     artistOrCivilization: "إنسان العصر الحجري الأعلى",
     year: "30,000 قبل الميلاد",
@@ -47,7 +48,7 @@ const museumArtworks: Artwork[] = [
     id: "art-2",
     title: "قيثارة أور الذهبية وقيثارة النمرود",
     eraId: "mesopotamia",
-    eraNumeral: "II",
+    eraNumeral: "𒈫",
     eraName: "حضارات بلاد الرافدين",
     artistOrCivilization: "صنّاع الحضارة السومرية والبابلية",
     year: "2,600 قبل الميلاد",
@@ -65,7 +66,7 @@ const museumArtworks: Artwork[] = [
     id: "art-3",
     title: "قناع توت عنخ آمون واللوحات الجدارية",
     eraId: "egypt",
-    eraNumeral: "III",
+    eraNumeral: "𒐈",
     eraName: "مصر القديمة (الفراعنة)",
     artistOrCivilization: "فنانو الدولة الحديثة المصرية",
     year: "1,323 قبل الميلاد",
@@ -83,7 +84,7 @@ const museumArtworks: Artwork[] = [
     id: "art-4",
     title: "تمثال رامي القرص ودقة التشريح",
     eraId: "greece",
-    eraNumeral: "IV",
+    eraNumeral: "𒐉",
     eraName: "الإغريق والرومان",
     artistOrCivilization: "النحات مايرون (Myron)",
     year: "450 قبل الميلاد",
@@ -101,7 +102,7 @@ const museumArtworks: Artwork[] = [
     id: "art-5",
     title: "الفيزياء الروحية والأيقونات البيزنطية",
     eraId: "medieval",
-    eraNumeral: "V",
+    eraNumeral: "𒐊",
     eraName: "العصور الوسطى والمظلمة",
     artistOrCivilization: "معلمو الورش البيزنطية والقوطية",
     year: "1,100 ميلادية",
@@ -119,7 +120,7 @@ const museumArtworks: Artwork[] = [
     id: "art-6",
     title: "لوحة الجوكندا وتفتيت الضوء (Sphumato)",
     eraId: "renaissance",
-    eraNumeral: "VI",
+    eraNumeral: "𒐋",
     eraName: "عصر النهضة والأساتذة الكبار",
     artistOrCivilization: "ليوناردو دا فينشي",
     year: "1,503 ميلادية",
@@ -137,7 +138,7 @@ const museumArtworks: Artwork[] = [
     id: "art-7",
     title: "ليلة النجوم والتعبيرية البصرية",
     eraId: "modern",
-    eraNumeral: "VII",
+    eraNumeral: "𒐌",
     eraName: "الفن الحديث والمعاصر",
     artistOrCivilization: "فينسنت فان غوخ",
     year: "1,889 ميلادية",
@@ -197,7 +198,10 @@ export default function PersonalMuseumPage() {
 
       <main className="bg-[#0D0D0D] text-white min-h-screen pt-32 pb-24 selection:bg-[#A30018] selection:text-white">
         {/* Header Title */}
-        <div className="container text-center pt-6 pb-12">
+        <div className="container text-center pt-6 pb-12 flex flex-col items-center">
+          {/* Museum Audio Music Player Button */}
+          <MusicButton audioSrc="/audio/museummusic.ogg" />
+
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
