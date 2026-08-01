@@ -213,7 +213,7 @@ export default function PersonalMuseumPage() {
           </motion.div>
 
           <h1 className="mt-8 text-4xl sm:text-6xl md:text-7xl font-black leading-tight text-white">
-            محتوى التفكيك والتحليل البصري
+            محتوى والتحليل البصري
           </h1>
           <p className="mt-4 text-base sm:text-lg text-neutral-400 font-serif max-w-2xl mx-auto">
             اضغط على أي لوحة لاستعراض طبقات الرسم الهيكلي، شبكة المنظور، والتحليل الأكاديمي التفصيلي.
