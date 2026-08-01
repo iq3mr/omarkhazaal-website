@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import VisitorCounter from "../ui/VisitorCounter";
 
 const socials = [
   {
@@ -47,7 +48,7 @@ export default function Footer() {
           viewport={{ once: true }}
           className="text-5xl md:text-7xl font-black leading-tight"
         >
-         بكل بساطة, خليك افضل و راح اساعدك تكون افضل.
+         بكل بساطة, خليك افضل و راح اساعدك تكون افضل
         </motion.h2>
 
         <div className="w-24 h-[2px] bg-[#A30018] mt-8 mb-10" />
@@ -122,10 +123,12 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-neutral-800 mt-24 pt-10 flex flex-col md:flex-row items-center justify-between gap-6">
-
-          <p className="text-neutral-500">
+          <p className="text-neutral-500 text-sm">
             © 2026 أكاديمية عمر خزعل — جميع الحقوق محفوظة.
           </p>
+
+          {/* Visitor Counter Button Badge */}
+          <VisitorCounter />
 
           <button
             onClick={() =>
