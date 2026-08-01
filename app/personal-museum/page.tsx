@@ -5,9 +5,8 @@ import Navbar from "../../components/layout/Navbar";
 import Footer from "../../components/layout/Footer";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Layers, Grid, ZoomIn, Sparkles, RefreshCw, X, Info, Activity, Palette } from "lucide-react";
+import { Layers, Grid, ZoomIn, Sparkles, RefreshCw, X, Info } from "lucide-react";
 import MusicButton from "../../components/ui/MusicButton";
-import ArtAnalysisLab from "../../components/museum/ArtAnalysisLab";
 
 export interface Artwork {
   id: string;
@@ -25,7 +24,7 @@ export interface Artwork {
   hotspots?: { x: number; y: number; icon: string; title: string; note: string }[];
 }
 
-// Multi-Artwork Gallery Collection (Add as many artworks as desired!)
+// Multi-Artwork Gallery Collection
 const museumArtworks: Artwork[] = [
   {
     id: "art-1",
@@ -49,7 +48,7 @@ const museumArtworks: Artwork[] = [
     id: "art-2",
     title: "قيثارة أور الذهبية وقيثارة النمرود",
     eraId: "mesopotamia",
-    eraNumeral: "𒈫",
+    eraNumeral: "<ctrl42>",
     eraName: "حضارات بلاد الرافدين",
     artistOrCivilization: "صنّاع الحضارة السومرية والبابلية",
     year: "2,600 قبل الميلاد",
@@ -85,7 +84,7 @@ const museumArtworks: Artwork[] = [
     id: "art-4",
     title: "تمثال رامي القرص ودقة التشريح",
     eraId: "greece",
-    eraNumeral: "𒐉",
+    eraNumeral: "<ctrl42>",
     eraName: "الإغريق والرومان",
     artistOrCivilization: "النحات مايرون (Myron)",
     year: "450 قبل الميلاد",
@@ -103,13 +102,13 @@ const museumArtworks: Artwork[] = [
     id: "art-5",
     title: "الفيزياء الروحية والأيقونات البيزنطية",
     eraId: "medieval",
-    eraNumeral: "𒐊",
+    eraNumeral: "<ctrl42>",
     eraName: "العصور الوسطى والمظلمة",
     artistOrCivilization: "معلمو الورش البيزنطية والقوطية",
     year: "1,100 ميلادية",
     medium: "تمبرا وأوراق الذهب على خشب",
     description: "تجريد العالم المادي لصالح العالم الروحي عبر الخلفيات الذهبية والخطوط العمودية الممتدة.",
-    analysis: "إلغاء المنظور المادي التقليدي واستبداله بالمنظور المعكوس (Reverse Perspective) لإشعار الزائر بالحضور الإلهي.",
+    analysis: "إلغاء المنظور المادي التقليدي واستبداله بالمنظور المعكوس (Reverse Perspective) لإشعور الزائر بالحضور الإلهي.",
     image: "/museum/medival.webp",
     color: "#6B3A5D",
     hotspots: [
@@ -119,13 +118,13 @@ const museumArtworks: Artwork[] = [
   },
   {
     id: "art-6",
-    title: "لوحة موناليزا وتفتيت الضوء (Sfumato)",
+    title: "لوحة الجوكندا وتفتيت الضوء (Sphumato)",
     eraId: "renaissance",
-    eraNumeral: "𒐋",
+    eraNumeral: "<ctrl42>",
     eraName: "عصر النهضة والأساتذة الكبار",
     artistOrCivilization: "ليوناردو دا فينشي",
     year: "1,503 ميلادية",
-    medium: "زيت على لوح من الخشب",
+    medium: "زيت على لوح من خشب الحور",
     description: "أعظم إنجازات عصر النهضة في دمج التظليل الدخاني (Sfumato) مع البناء الهرمي للتكوين.",
     analysis: "استخدام تقنية السفوماتو لإخفاء الخطوط القاسية، والاعتماد على نقطة تلاشٍ واحدة خلف عيني الشخصية.",
     image: "/museum/renaissance.webp",
@@ -139,7 +138,7 @@ const museumArtworks: Artwork[] = [
     id: "art-7",
     title: "ليلة النجوم والتعبيرية البصرية",
     eraId: "modern",
-    eraNumeral: "𒐌",
+    eraNumeral: "<ctrl42>",
     eraName: "الفن الحديث والمعاصر",
     artistOrCivilization: "فينسنت فان غوخ",
     year: "1,889 ميلادية",
@@ -167,7 +166,6 @@ const categories = [
 ];
 
 export default function PersonalMuseumPage() {
-  const [mainViewTab, setMainViewTab] = useState<"gallery" | "lab">("gallery");
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [selectedArtwork, setSelectedArtwork] = useState<Artwork | null>(null);
 
@@ -210,71 +208,34 @@ export default function PersonalMuseumPage() {
             className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full museum-plaque border border-[#C5A059]/40 text-[#C5A059] text-sm md:text-base font-bold uppercase shadow-2xl"
           >
             <Sparkles className="w-4 h-4 text-[#A30018] animate-spin" />
-            <span>المتحف الشخصي | صرح الفن والتحليل</span>
+            <span>المتحف الشخصي | معرض تاريخ الفنون</span>
             <Sparkles className="w-4 h-4 text-[#A30018] animate-spin" />
           </motion.div>
 
           <h1 className="mt-8 text-4xl sm:text-6xl md:text-7xl font-black leading-tight text-white">
-            {mainViewTab === "gallery" ? "معرض الفنون والتفكيك البصري" : "مختبر تحليل الأعمال الفنية"}
+            محتوى التفكيك والتحليل البصري
           </h1>
+          <p className="mt-4 text-base sm:text-lg text-neutral-400 font-serif max-w-2xl mx-auto">
+            اضغط على أي لوحة لاستعراض طبقات الرسم الهيكلي، شبكة المنظور، والتحليل الأكاديمي التفصيلي.
+          </p>
 
-          {/* Top Section View Selector Tabs */}
-          <div className="flex flex-wrap items-center justify-center gap-4 mt-8 p-1.5 rounded-full bg-white/10 backdrop-blur-xl border border-[#C5A059]/30 shadow-2xl">
-            <button
-              onClick={() => setMainViewTab("gallery")}
-              className={`inline-flex items-center gap-2 px-8 py-3 rounded-full text-sm font-bold transition-all duration-300 ${
-                mainViewTab === "gallery"
-                  ? "bg-[#A30018] text-white shadow-lg scale-105"
-                  : "text-neutral-300 hover:text-white"
-              }`}
-            >
-              <Palette className="w-4 h-4" />
-              <span>معرض تاريخ الفنون</span>
-            </button>
-
-            <button
-              onClick={() => setMainViewTab("lab")}
-              className={`inline-flex items-center gap-2 px-8 py-3 rounded-full text-sm font-bold transition-all duration-300 ${
-                mainViewTab === "lab"
-                  ? "bg-[#A30018] text-white shadow-lg scale-105"
-                  : "text-neutral-300 hover:text-white"
-              }`}
-            >
-              <Activity className="w-4 h-4 text-[#C5A059] animate-pulse" />
-              <span>مختبر التحليل الذكي (Art Lab)</span>
-            </button>
+          {/* Filter Tabs */}
+          <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3 mt-10">
+            {categories.map((cat) => (
+              <button
+                key={cat.id}
+                onClick={() => setSelectedCategory(cat.id)}
+                className={`px-5 py-2.5 rounded-full text-xs md:text-sm font-bold border transition-all duration-300 ${
+                  selectedCategory === cat.id
+                    ? "bg-[#A30018] border-[#A30018] text-white shadow-lg scale-105"
+                    : "bg-[#181818] border-[#333] text-neutral-400 hover:border-[#C5A059] hover:text-white"
+                }`}
+              >
+                {cat.name}
+              </button>
+            ))}
           </div>
         </div>
-
-        {/* Render Selected Tab View */}
-        {mainViewTab === "lab" ? (
-          <div className="container max-w-7xl px-4">
-            <ArtAnalysisLab />
-          </div>
-        ) : (
-          <>
-            <div className="container text-center mb-8">
-              <p className="text-base sm:text-lg text-neutral-400 font-serif max-w-2xl mx-auto">
-                اضغط على أي لوحة لاستعراض طبقات الرسم الهيكلي، شبكة المنظور، والتحليل الأكاديمي التفصيلي.
-              </p>
-
-              {/* Filter Tabs */}
-              <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3 mt-8">
-                {categories.map((cat) => (
-                  <button
-                    key={cat.id}
-                    onClick={() => setSelectedCategory(cat.id)}
-                    className={`px-5 py-2.5 rounded-full text-xs md:text-sm font-bold border transition-all duration-300 ${
-                      selectedCategory === cat.id
-                        ? "bg-[#A30018] border-[#A30018] text-white shadow-lg scale-105"
-                        : "bg-[#181818] border-[#333] text-neutral-400 hover:border-[#C5A059] hover:text-white"
-                    }`}
-                  >
-                    {cat.name}
-                  </button>
-                ))}
-              </div>
-            </div>
 
         {/* Gallery Grid Showcase */}
         <div className="container max-w-7xl px-4">
@@ -371,7 +332,7 @@ export default function PersonalMuseumPage() {
                 </button>
 
                 <div className="grid lg:grid-cols-12 gap-0">
-                  {/* Left Interactive Tracing Canvas (8 cols) */}
+                  {/* Left Interactive Tracing Canvas (7 cols) */}
                   <div className="lg:col-span-7 bg-black relative flex flex-col justify-between">
                     {/* Top Toolbar */}
                     <div className="flex flex-wrap items-center justify-between gap-3 p-4 bg-[#1A1A1A] border-b border-[#C5A059]/20 z-20">
@@ -573,8 +534,6 @@ export default function PersonalMuseumPage() {
             </motion.div>
           )}
         </AnimatePresence>
-        </>
-        )}
       </main>
 
       <Footer />
