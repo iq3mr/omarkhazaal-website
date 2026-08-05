@@ -19,10 +19,9 @@ const getInitialTheme = (): Theme => {
     if (savedTheme === "dark" || savedTheme === "light") {
       return savedTheme;
     }
-    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-  } catch {
-    return "light";
-  }
+  } catch {}
+  // Default is ALWAYS Light Mode unless explicitly toggled to Dark by user
+  return "light";
 };
 
 export function ThemeProvider({ children }: { children: ReactNode }) {

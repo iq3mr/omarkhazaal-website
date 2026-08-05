@@ -30,9 +30,9 @@ html.dark {
   --background: #121212;
   --foreground: #F5F2EB;
   --card-bg: #1D1D1D;
-  --card-border: rgba(255, 255, 255, 0.10);
+  --card-border: rgba(255, 255, 255, 0.12);
   --text-primary: #F5F2EB;
-  --text-secondary: #B8B8B8;
+  --text-secondary: #D1D1D1;
   --red: #A30018;
   --museum-gold: #C5A059;
   
@@ -209,21 +209,26 @@ body::before{
   background: radial-gradient(circle at 50% 40%, rgba(163, 0, 24, 0.12) 0%, rgba(197, 160, 89, 0.05) 45%, transparent 70%);
 }
 
-/* Dark Mode Overrides for Cards & Sections */
+/* Dark Mode High-Contrast Overrides for Cards & Text */
 html.dark .bg-white {
   background-color: var(--card-bg) !important;
 }
 
-html.dark .text-neutral-900 {
-  color: var(--text-primary) !important;
+html.dark .text-neutral-900,
+html.dark .text-neutral-800,
+html.dark .text-neutral-700,
+html.dark .text-black {
+  color: #F5F2EB !important;
 }
 
 html.dark .text-neutral-600,
-html.dark .text-neutral-500 {
-  color: var(--text-secondary) !important;
+html.dark .text-neutral-500,
+html.dark .text-neutral-400 {
+  color: #D1D1D1 !important;
 }
 
 html.dark .border-neutral-200,
-html.dark .border-neutral-300 {
+html.dark .border-neutral-300,
+html.dark .border-neutral-800 {
   border-color: var(--card-border) !important;
 }
