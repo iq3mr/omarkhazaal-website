@@ -62,7 +62,7 @@ export default function FeaturedCourse() {
               </div>
 
               <div>
-                <h3 className="text-4xl font-black text-[#121212]">8+</h3>
+                <h3 className="text-4xl font-black text-[#121212]">10+</h3>
                 <p className="mt-1 text-sm font-bold text-neutral-600">ساعة تطبيق مباشر</p>
               </div>
             </div>
