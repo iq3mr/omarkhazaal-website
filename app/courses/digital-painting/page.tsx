@@ -61,7 +61,7 @@ export default function DigitalPaintingPage() {
                     </span>
 
                     <h3 className="mt-2 text-2xl font-bold">
-                      8 ساعات
+                      +10 ساعات
                     </h3>
                   </div>
 
@@ -70,7 +70,7 @@ export default function DigitalPaintingPage() {
                 <div className="mt-16 flex items-center gap-8">
 
                   <h2 className="text-5xl font-black text-[#A30018]">
-                    49$
+                    26$
                   </h2>
 
                   <a
