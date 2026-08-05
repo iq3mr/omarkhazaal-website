@@ -84,13 +84,13 @@ export default function Navbar() {
                   duration-300
                   ${
                     scrolled
-                      ? "bg-white/85 dark:bg-[#1D1D1D]/85 border-white/40 dark:border-white/10 shadow-xl backdrop-blur-md md:backdrop-blur-2xl"
-                      : "bg-white/60 dark:bg-[#1D1D1D]/60 border-white/25 dark:border-white/10 backdrop-blur-sm md:backdrop-blur-xl"
+                      ? "bg-white/85 border-white/40 shadow-xl backdrop-blur-md md:backdrop-blur-2xl text-[#151515]"
+                      : "bg-white/60 border-white/25 backdrop-blur-sm md:backdrop-blur-xl text-[#151515]"
                   }
                 `}
               >
 
-                <div className="h-16 lg:h-20 flex items-center justify-between px-5 lg:grid lg:grid-cols-3">
+                <div className="h-16 lg:h-20 flex items-center justify-between px-5 lg:grid lg:grid-cols-3 text-[#151515]">
 
                   {/* Desktop Right */}
 
@@ -100,7 +100,7 @@ export default function Navbar() {
                       <Link
                         key={item.href}
                         href={item.href}
-                        className="group relative text-[15px] font-medium transition-colors hover:text-[#A30018] dark:text-[#F5F2EB]"
+                        className="group relative text-[15px] font-medium text-[#151515] transition-colors hover:text-[#A30018]"
                       >
                         {item.name}
 
@@ -130,6 +130,7 @@ export default function Navbar() {
                     className="
                       lg:hidden
                       p-1
+                      text-[#151515]
                     "
                   >
                     <Menu size={28} />
@@ -139,7 +140,7 @@ export default function Navbar() {
 
                   <Link
                     href="/"
-                    className="flex flex-col items-center justify-center"
+                    className="flex flex-col items-center justify-center text-[#151515]"
                   >
                     <Image
                       src="/eye.webp"
@@ -158,7 +159,7 @@ export default function Navbar() {
                       "
                     />
 
-                    <span className="mt-2 text-xs lg:text-sm font-bold">
+                    <span className="mt-2 text-xs lg:text-sm font-bold text-[#151515]">
                       أكاديمية عمر خزعل
                     </span>
 
@@ -172,7 +173,7 @@ export default function Navbar() {
                       <Link
                         key={item.href}
                         href={item.href}
-                        className="group relative text-[15px] font-medium transition-colors hover:text-[#A30018] dark:text-[#F5F2EB]"
+                        className="group relative text-[15px] font-medium text-[#151515] transition-colors hover:text-[#A30018]"
                       >
                         {item.name}
 
