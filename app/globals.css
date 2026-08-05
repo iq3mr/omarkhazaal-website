@@ -28,11 +28,11 @@
 /* Dark Mode Palette - Premium Museum / Editorial VisionOS Aesthetic */
 html.dark {
   --background: #121212;
-  --foreground: #F5F2EB;
+  --foreground: #FFFFFF;
   --card-bg: #1D1D1D;
   --card-border: rgba(255, 255, 255, 0.12);
-  --text-primary: #F5F2EB;
-  --text-secondary: #D1D1D1;
+  --text-primary: #FFFFFF;
+  --text-secondary: #E2E2E2;
   --red: #A30018;
   --museum-gold: #C5A059;
   
@@ -209,26 +209,58 @@ body::before{
   background: radial-gradient(circle at 50% 40%, rgba(163, 0, 24, 0.12) 0%, rgba(197, 160, 89, 0.05) 45%, transparent 70%);
 }
 
-/* Dark Mode High-Contrast Overrides for Cards & Text */
+/* Dark Mode Comprehensive High-Contrast Overrides */
+html.dark h1,
+html.dark h2,
+html.dark h3,
+html.dark h4,
+html.dark h5,
+html.dark h6,
+html.dark p,
+html.dark span,
+html.dark a,
+html.dark div,
+html.dark label,
+html.dark input,
+html.dark button,
+html.dark li,
+html.dark strong,
+html.dark b {
+  color: var(--foreground);
+}
+
 html.dark .bg-white {
   background-color: var(--card-bg) !important;
 }
 
+html.dark .text-black,
+html.dark .text-neutral-950,
 html.dark .text-neutral-900,
 html.dark .text-neutral-800,
 html.dark .text-neutral-700,
-html.dark .text-black {
-  color: #F5F2EB !important;
+html.dark .text-stone-900,
+html.dark .text-stone-800,
+html.dark .text-gray-900,
+html.dark .text-gray-800 {
+  color: #FFFFFF !important;
 }
 
 html.dark .text-neutral-600,
 html.dark .text-neutral-500,
-html.dark .text-neutral-400 {
-  color: #D1D1D1 !important;
+html.dark .text-neutral-400,
+html.dark .text-stone-600,
+html.dark .text-stone-500,
+html.dark .text-gray-600,
+html.dark .text-gray-500 {
+  color: #E2E2E2 !important;
 }
 
 html.dark .border-neutral-200,
 html.dark .border-neutral-300,
 html.dark .border-neutral-800 {
   border-color: var(--card-border) !important;
+}
+
+html.dark button:hover {
+  color: #FFFFFF !important;
 }
