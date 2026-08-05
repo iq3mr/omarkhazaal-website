@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState, useCallback } from "react";
 import { Menu, X } from "lucide-react";
+import ThemeToggle from "../ui/ThemeToggle";
 
 const links = [
   { name: "المتحف الشخصي", href: "/personal-museum" },
@@ -83,8 +84,8 @@ export default function Navbar() {
                   duration-300
                   ${
                     scrolled
-                      ? "bg-white/85 border-white/40 shadow-xl backdrop-blur-md md:backdrop-blur-2xl"
-                      : "bg-white/60 border-white/25 backdrop-blur-sm md:backdrop-blur-xl"
+                      ? "bg-white/85 dark:bg-[#1D1D1D]/85 border-white/40 dark:border-white/10 shadow-xl backdrop-blur-md md:backdrop-blur-2xl"
+                      : "bg-white/60 dark:bg-[#1D1D1D]/60 border-white/25 dark:border-white/10 backdrop-blur-sm md:backdrop-blur-xl"
                   }
                 `}
               >
@@ -99,7 +100,7 @@ export default function Navbar() {
                       <Link
                         key={item.href}
                         href={item.href}
-                        className="group relative text-[15px] font-medium transition-colors hover:text-[#A30018]"
+                        className="group relative text-[15px] font-medium transition-colors hover:text-[#A30018] dark:text-[#F5F2EB]"
                       >
                         {item.name}
 
@@ -141,36 +142,37 @@ export default function Navbar() {
                     className="flex flex-col items-center justify-center"
                   >
                     <Image
-  src="/eye.webp"
-  alt="Academy"
-  width={46}
-  height={46}
-  priority
-  className="
-    w-10
-    lg:w-[46px]
-    h-auto
-    drop-shadow-[0_0_18px_rgba(163,0,24,.4)]
-    transition
-    duration-500
-    hover:scale-110
-  "
-/>
+                      src="/eye.webp"
+                      alt="Academy"
+                      width={46}
+                      height={46}
+                      priority
+                      className="
+                        w-10
+                        lg:w-[46px]
+                        h-auto
+                        drop-shadow-[0_0_18px_rgba(163,0,24,.4)]
+                        transition
+                        duration-500
+                        hover:scale-110
+                      "
+                    />
 
                     <span className="mt-2 text-xs lg:text-sm font-bold">
                       أكاديمية عمر خزعل
                     </span>
 
                   </Link>
-                                    {/* Desktop Left */}
 
-                  <nav className="hidden lg:flex items-center justify-center gap-8">
+                  {/* Desktop Left */}
+
+                  <nav className="hidden lg:flex items-center justify-center gap-6">
 
                     {links.slice(3).map((item) => (
                       <Link
                         key={item.href}
                         href={item.href}
-                        className="group relative text-[15px] font-medium transition-colors hover:text-[#A30018]"
+                        className="group relative text-[15px] font-medium transition-colors hover:text-[#A30018] dark:text-[#F5F2EB]"
                       >
                         {item.name}
 
@@ -191,11 +193,16 @@ export default function Navbar() {
                       </Link>
                     ))}
 
+                    {/* Dark / Light Mode Toggle Button */}
+                    <ThemeToggle />
+
                   </nav>
 
-                  {/* Empty Space Mobile */}
+                  {/* Mobile Theme Toggle Button */}
 
-                  <div className="lg:hidden w-8" />
+                  <div className="lg:hidden flex items-center">
+                    <ThemeToggle />
+                  </div>
 
                 </div>
 
@@ -222,7 +229,7 @@ export default function Navbar() {
               exit={{ opacity: 0 }}
               transition={{ duration: .2 }}
               onClick={closeMenu}
-              className="fixed inset-0 bg-black/25 backdrop-blur-[2px] z-50"
+              className="fixed inset-0 bg-black/40 backdrop-blur-[2px] z-50"
             />
 
             {/* Drawer */}
@@ -243,6 +250,11 @@ export default function Navbar() {
                 w-[300px]
                 max-w-[82vw]
                 bg-[#F8F6F1]
+                dark:bg-[#1D1D1D]
+                dark:text-[#F5F2EB]
+                border-l
+                border-transparent
+                dark:border-white/10
                 shadow-2xl
                 z-[60]
                 p-8
@@ -257,13 +269,17 @@ export default function Navbar() {
                   القائمة
                 </h2>
 
-                <button
-                  aria-label="إغلاق القائمة"
-                  onClick={closeMenu}
-                  className="p-1"
-                >
-                  <X size={28} />
-                </button>
+                <div className="flex items-center gap-3">
+                  <ThemeToggle />
+
+                  <button
+                    aria-label="إغلاق القائمة"
+                    onClick={closeMenu}
+                    className="p-1"
+                  >
+                    <X size={28} />
+                  </button>
+                </div>
 
               </div>
 

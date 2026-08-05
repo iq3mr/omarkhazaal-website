@@ -8,10 +8,39 @@
 :root {
   --background: #FFFFFF;
   --foreground: #151515;
+  --card-bg: #FFFFFF;
+  --card-border: rgba(0, 0, 0, 0.08);
+  --text-primary: #151515;
+  --text-secondary: #555555;
   --red: #A30018;
+  --museum-gold: #C5A059;
+  
+  --navbar-bg-scrolled: rgba(255, 255, 255, 0.85);
+  --navbar-bg-initial: rgba(255, 255, 255, 0.60);
+  --navbar-border: rgba(255, 255, 255, 0.40);
+  --drawer-bg: #F8F6F1;
+  --paper-grain-opacity: 0.018;
 
   --font-body: var(--font-sans);
   --font-title: var(--font-serif);
+}
+
+/* Dark Mode Palette - Premium Museum / Editorial VisionOS Aesthetic */
+html.dark {
+  --background: #121212;
+  --foreground: #F5F2EB;
+  --card-bg: #1D1D1D;
+  --card-border: rgba(255, 255, 255, 0.10);
+  --text-primary: #F5F2EB;
+  --text-secondary: #B8B8B8;
+  --red: #A30018;
+  --museum-gold: #C5A059;
+  
+  --navbar-bg-scrolled: rgba(29, 29, 29, 0.85);
+  --navbar-bg-initial: rgba(29, 29, 29, 0.60);
+  --navbar-border: rgba(255, 255, 255, 0.12);
+  --drawer-bg: #1D1D1D;
+  --paper-grain-opacity: 0.008;
 }
 
 *,
@@ -23,6 +52,7 @@
 html{
   scroll-behavior:smooth;
   -webkit-text-size-adjust:100%;
+  transition: background-color 250ms ease, color 250ms ease;
 }
 
 body,
@@ -32,13 +62,14 @@ textarea,
 select,
 optgroup {
   position:relative;
-  background:var(--background);
+  background-color:var(--background);
   color:var(--foreground);
   font-family:var(--font-body);
   overflow-x:hidden;
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
   text-rendering:optimizeLegibility;
+  transition: background-color 250ms ease, color 250ms ease;
 }
 
 /* Fix for Arabic text letter-spacing disconnection on mobile devices */
@@ -57,13 +88,14 @@ body::before{
   inset:0;
   pointer-events:none;
   z-index:9999;
-  opacity:.018;
+  opacity: var(--paper-grain-opacity);
 
   background-image:
     radial-gradient(circle at 20% 20%,#000 .45px,transparent .7px),
     radial-gradient(circle at 80% 70%,#000 .45px,transparent .7px);
 
   background-size:24px 24px,30px 30px;
+  transition: opacity 250ms ease;
 }
 
 img{
@@ -175,4 +207,23 @@ body::before{
 
 .spotlight-glow {
   background: radial-gradient(circle at 50% 40%, rgba(163, 0, 24, 0.12) 0%, rgba(197, 160, 89, 0.05) 45%, transparent 70%);
+}
+
+/* Dark Mode Overrides for Cards & Sections */
+html.dark .bg-white {
+  background-color: var(--card-bg) !important;
+}
+
+html.dark .text-neutral-900 {
+  color: var(--text-primary) !important;
+}
+
+html.dark .text-neutral-600,
+html.dark .text-neutral-500 {
+  color: var(--text-secondary) !important;
+}
+
+html.dark .border-neutral-200,
+html.dark .border-neutral-300 {
+  border-color: var(--card-border) !important;
 }

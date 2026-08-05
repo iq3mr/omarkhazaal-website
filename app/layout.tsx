@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import Background from "../components/ui/Background";
+import { ThemeProvider } from "../components/providers/ThemeProvider";
 import "./globals.css";
 
 const thmanyahSans = localFont({
@@ -78,12 +79,30 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ar" dir="rtl">
-      <body
-        className={`${thmanyahSans.variable} ${thmanyahSerif.variable}`}
-      >
-        <Background />
-        {children}
+    <html lang="ar" dir="rtl" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var saved = localStorage.getItem('theme');
+                  if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                    document.documentElement.classList.add('dark');
+                  } else {
+                    document.documentElement.classList.remove('dark');
+                  }
+                } catch (e) {}
+              })();
+            `,
+          }}
+        />
+      </head>
+      <body className={`${thmanyahSans.variable} ${thmanyahSerif.variable}`}>
+        <ThemeProvider>
+          <Background />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
