@@ -8,7 +8,7 @@ import { Menu, X } from "lucide-react";
 import ThemeToggle from "../ui/ThemeToggle";
 
 const links = [
-  { name: "المتحف الشخصي", href: "/personal-museum" },
+  { name: "القرآن الكريم", href: "/personal-museum" },
   { name: "الدورات", href: "/courses" },
   { name: "الكتب", href: "/books" },
   { name: "دفترنا", href: "/journal" },
