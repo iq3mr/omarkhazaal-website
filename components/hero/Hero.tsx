@@ -19,7 +19,7 @@ export default function Hero() {
         {/* Central Artwork Showcase - Interactive Draggable Eye */}
         <DraggableEye />
 
-        {/* Title Logo Image (Single White Logo with Adaptive Invert Filter for Light Mode) */}
+        {/* Title Logo Image (Single White Logo Image) */}
         <h1 className="mt-12 flex justify-center items-center">
           <Image
             src="/branding/logo-white.PNG"
@@ -27,7 +27,7 @@ export default function Hero() {
             width={600}
             height={200}
             priority
-            className="h-auto w-auto max-w-[280px] sm:max-w-[420px] md:max-w-[560px] lg:max-w-[680px] object-contain invert dark:invert-0"
+            className="h-auto w-auto max-w-[280px] sm:max-w-[420px] md:max-w-[560px] lg:max-w-[680px] object-contain"
           />
         </h1>
 
@@ -48,9 +48,9 @@ export default function Hero() {
             font-serif
           "
         >
-          تعليم منهجي وتدريب عملي لجميع المستويات
+          فنان تشكيلي عراقي
           <br />
-          <span className="text-[#A30018] font-bold">في الفنون المرئية، وصناعة المحتوى</span>
+          <span className="text-[#A30018] font-bold">مدرس وباحث في الفنون المرئية</span>
         </p>
 
         {/* Action Buttons */}
