@@ -19,23 +19,15 @@ export default function Hero() {
         {/* Central Artwork Showcase - Interactive Draggable Eye */}
         <DraggableEye />
 
-        {/* Title Logo Images (Black for Light Mode, White for Dark Mode) */}
+        {/* Title Logo Image (Single White Logo with Adaptive Invert Filter for Light Mode) */}
         <h1 className="mt-12 flex justify-center items-center">
-          <Image
-            src="/branding/logo-black.PNG"
-            alt="عمر خزعل"
-            width={600}
-            height={200}
-            priority
-            className="block dark:hidden h-auto w-auto max-w-[280px] sm:max-w-[420px] md:max-w-[560px] lg:max-w-[680px] object-contain"
-          />
           <Image
             src="/branding/logo-white.PNG"
             alt="عمر خزعل"
             width={600}
             height={200}
             priority
-            className="hidden dark:block h-auto w-auto max-w-[280px] sm:max-w-[420px] md:max-w-[560px] lg:max-w-[680px] object-contain"
+            className="h-auto w-auto max-w-[280px] sm:max-w-[420px] md:max-w-[560px] lg:max-w-[680px] object-contain invert dark:invert-0"
           />
         </h1>
 
