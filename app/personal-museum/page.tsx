@@ -64,6 +64,20 @@ export default function PersonalMuseumPage() {
     }
   };
 
+  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    if (!containerRef.current || !e.touches[0]) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    targetPosRef.current = {
+      x: e.touches[0].clientX - rect.left,
+      y: e.touches[0].clientY - rect.top,
+    };
+    isPointerInsideRef.current = true;
+
+    if (!animationFrameRef.current) {
+      animationFrameRef.current = requestAnimationFrame(() => animateRef.current());
+    }
+  };
+
   const handlePointerLeave = () => {
     isPointerInsideRef.current = false;
   };
@@ -212,6 +226,9 @@ export default function PersonalMuseumPage() {
               ref={containerRef}
               onPointerMove={handlePointerMove}
               onPointerLeave={handlePointerLeave}
+              onTouchMove={handleTouchMove}
+              onTouchStart={handleTouchMove}
+              onTouchEnd={handlePointerLeave}
               className="relative w-full overflow-hidden bg-[#050505] cursor-crosshair select-text py-6"
               style={
                 {
