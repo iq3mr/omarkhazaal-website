@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Scheherazade+New:wght@400;700&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -23,6 +24,23 @@
 
   --font-body: var(--font-sans);
   --font-title: var(--font-serif);
+}
+
+/* Arabic Quran Custom Fonts */
+.font-amiri {
+  font-family: 'Amiri', serif !important;
+}
+
+.font-scheherazade {
+  font-family: 'Scheherazade New', serif !important;
+}
+
+.font-quran-serif {
+  font-family: var(--font-serif), serif !important;
+}
+
+.font-quran-sans {
+  font-family: var(--font-sans), sans-serif !important;
 }
 
 /* Dark Mode Palette - Premium Museum / Editorial VisionOS Aesthetic */

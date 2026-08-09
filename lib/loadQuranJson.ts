@@ -3,6 +3,14 @@ export interface ParsedSurah {
   body: string;
 }
 
+export function toArabicNumerals(text: string): string {
+  const arabicDigits = ["٠", "١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩"];
+  return text.replace(/\((\d+)\)/g, (_, num) => {
+    const converted = num.replace(/\d/g, (d: string) => arabicDigits[parseInt(d, 10)]);
+    return `(${converted})`;
+  });
+}
+
 export function parseQuranJson(jsonRaw: Record<string, unknown> | string): ParsedSurah[] {
   let fullText = "";
   if (typeof jsonRaw === "string") {
@@ -16,6 +24,9 @@ export function parseQuranJson(jsonRaw: Record<string, unknown> | string): Parse
 
   // Remove UTF-8 BOM if present
   fullText = fullText.replace(/^\uFEFF/, "");
+
+  // Convert verse ending numbers (1), (2) to Eastern Arabic numerals (١), (٢), (٣)
+  fullText = toArabicNumerals(fullText);
 
   // Split by Surah header pattern
   const parts = fullText.split(/(سورة\s+[^\n]+)/g).filter(Boolean);
