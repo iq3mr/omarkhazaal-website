@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import DraggableEye from "../ui/DraggableEye";
 import MusicButton from "../ui/MusicButton";
@@ -18,21 +19,24 @@ export default function Hero() {
         {/* Central Artwork Showcase - Interactive Draggable Eye */}
         <DraggableEye />
 
-        {/* Title */}
-        <h1
-          className="
-            mt-12
-            text-5xl
-            sm:text-7xl
-            md:text-8xl
-            lg:text-9xl
-            font-black
-            leading-[1.08]
-            tracking-tight
-            text-[#121212]
-          "
-        >
-          عمر خزعل
+        {/* Title Logo Images (Black for Light Mode, White for Dark Mode) */}
+        <h1 className="mt-12 flex justify-center items-center">
+          <Image
+            src="/branding/logo-black.PNG"
+            alt="عمر خزعل"
+            width={600}
+            height={200}
+            priority
+            className="block dark:hidden h-auto w-auto max-w-[280px] sm:max-w-[420px] md:max-w-[560px] lg:max-w-[680px] object-contain"
+          />
+          <Image
+            src="/branding/logo-white.PNG"
+            alt="عمر خزعل"
+            width={600}
+            height={200}
+            priority
+            className="hidden dark:block h-auto w-auto max-w-[280px] sm:max-w-[420px] md:max-w-[560px] lg:max-w-[680px] object-contain"
+          />
         </h1>
 
         {/* Museum Divider */}
