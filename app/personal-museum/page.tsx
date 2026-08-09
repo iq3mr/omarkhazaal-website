@@ -129,15 +129,15 @@ export default function PersonalMuseumPage() {
             className="inline-flex items-center gap-2 px-5 py-1.5 rounded-full museum-plaque border border-[#C5A059]/40 text-[#C5A059] text-xs font-bold tracking-widest uppercase shadow-2xl"
           >
             <Sparkles className="w-3.5 h-3.5 text-[#C5A059] animate-pulse" />
-            <span>الْقُرْآنُ الْكَرِيمُ</span>
+            <span>القرآن الكريم</span>
             <Sparkles className="w-3.5 h-3.5 text-[#C5A059] animate-pulse" />
           </motion.div>
 
           <h1 className="mt-4 text-3xl sm:text-5xl md:text-6xl font-serif font-black leading-tight text-[#F5F2EB] tracking-wide">
-            الْقُرْآنُ الْكَرِيمُ
+            القرآن الكريم
           </h1>
           <p className="mt-1 text-xs sm:text-sm text-[#C5A059] font-serif tracking-widest opacity-80">
-            مِنْ سُورَةِ الْفَاتِحَةِ إِلَى سُورَةِ النَّاسِ
+            من سورة الفاتحة الى سورة الناس
           </p>
 
           {/* Interactive Typography Toolbar (أداة التحكم بالخطوط والسطور) */}
@@ -208,7 +208,7 @@ export default function PersonalMuseumPage() {
         {/* Loading Indicator */}
         {loading && (
           <div className="text-center py-20 font-serif text-[#C5A059] text-sm animate-pulse">
-            جَارٍ تَحْمِيلُ النَّصِّ الْقُرْآنِيِّ الْكِلاَسِيكِيِّ...
+           جار تحميل النص القرآني
           </div>
         )}
 

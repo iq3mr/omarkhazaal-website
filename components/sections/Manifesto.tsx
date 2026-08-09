@@ -25,7 +25,7 @@ export default function Manifesto() {
             <h2 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[1.15] text-[#121212]">
               ليس الفن نسخاً ولا تكراراً
               <br />
-              <span className="text-[#A30018] font-serif">بل هو أنت.</span>
+              <span className="text-[#A30018] font-serif">بل هو أنت</span>
             </h2>
           </Reveal>
 
