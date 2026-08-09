@@ -7,6 +7,12 @@ import { motion } from "framer-motion";
 import { Type, MoveVertical, Sparkles, SlidersHorizontal } from "lucide-react";
 import { parseQuranJson, ParsedSurah } from "../../lib/loadQuranJson";
 
+interface WordPosCache {
+  el: HTMLElement;
+  cx: number;
+  cy: number;
+}
+
 export default function PersonalMuseumPage() {
   const [surahs, setSurahs] = useState<ParsedSurah[]>([]);
   const [loading, setLoading] = useState(true);
@@ -17,26 +23,98 @@ export default function PersonalMuseumPage() {
   const [selectedFont, setSelectedFont] = useState<string>("font-quran-serif");
 
   const containerRef = useRef<HTMLDivElement>(null);
+  const wordCacheRef = useRef<WordPosCache[]>([]);
+  const activeLitWordsRef = useRef<Set<HTMLElement>>(new Set());
+
   const animationFrameRef = useRef<number | null>(null);
   const isPointerInsideRef = useRef(false);
 
   const targetPosRef = useRef({ x: -1000, y: -1000 });
   const currentPosRef = useRef({ x: -1000, y: -1000 });
 
-  // High performance inertial Lerp Spotlight animation loop (120fps hardware acceleration)
+  // Measure & cache exact word positions after DOM layout renders or resizes
+  const cacheWordPositions = () => {
+    if (!containerRef.current) return;
+    const containerRect = containerRef.current.getBoundingClientRect();
+    const wordElements = containerRef.current.querySelectorAll<HTMLElement>(".quran-word-node");
+
+    const cache: WordPosCache[] = [];
+    wordElements.forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      cache.push({
+        el,
+        cx: rect.left - containerRect.left + rect.width / 2,
+        cy: rect.top - containerRect.top + rect.height / 2,
+      });
+    });
+
+    wordCacheRef.current = cache;
+  };
+
+  // High-Performance RAF Lerp & Word Distance Illumination Engine (120fps GPU execution)
   const animateRef = useRef<() => void>(() => {});
 
   useEffect(() => {
     animateRef.current = () => {
       if (!containerRef.current) return;
 
-      const lerpFactor = 0.12;
+      // 1. Inertial Smooth Light Beam Tracking
+      const lerpFactor = 0.14;
       currentPosRef.current.x += (targetPosRef.current.x - currentPosRef.current.x) * lerpFactor;
       currentPosRef.current.y += (targetPosRef.current.y - currentPosRef.current.y) * lerpFactor;
 
-      containerRef.current.style.setProperty("--spotlight-x", `${currentPosRef.current.x}px`);
-      containerRef.current.style.setProperty("--spotlight-y", `${currentPosRef.current.y}px`);
+      const lightX = currentPosRef.current.x;
+      const lightY = currentPosRef.current.y;
 
+      containerRef.current.style.setProperty("--spotlight-x", `${lightX}px`);
+      containerRef.current.style.setProperty("--spotlight-y", `${lightY}px`);
+
+      // 2. Word Proximity Distance Illumination Calculation
+      const spotlightRadius = 260; // Light beam radius in pixels
+      const currentlyLit = new Set<HTMLElement>();
+
+      if (isPointerInsideRef.current && wordCacheRef.current.length > 0) {
+        const cache = wordCacheRef.current;
+        const len = cache.length;
+
+        for (let i = 0; i < len; i++) {
+          const item = cache[i];
+          // Quick vertical bounds check (only calculate words within 300px Y range)
+          const dy = Math.abs(lightY - item.cy);
+          if (dy > spotlightRadius) continue;
+
+          const dx = Math.abs(lightX - item.cx);
+          if (dx > spotlightRadius) continue;
+
+          const dist = Math.hypot(dx, dy);
+          if (dist < spotlightRadius) {
+            const factor = 1 - dist / spotlightRadius;
+            const eased = factor * factor; // Soft smooth radial falloff
+
+            item.el.style.opacity = `${0.28 + eased * 0.72}`;
+            item.el.style.color = eased > 0.25 ? "#FFFFFF" : "#F5F2EB";
+            item.el.style.textShadow = eased > 0.08
+              ? `0 0 ${14 * eased}px rgba(197, 160, 89, ${0.85 * eased}), 0 0 ${28 * eased}px rgba(255, 255, 255, ${0.45 * eased})`
+              : "none";
+            item.el.style.transform = eased > 0.05 ? `scale(${1 + 0.035 * eased}) translateZ(0)` : "none";
+
+            currentlyLit.add(item.el);
+          }
+        }
+      }
+
+      // 3. Reset previously lit words that are now outside the light beam
+      activeLitWordsRef.current.forEach((el) => {
+        if (!currentlyLit.has(el)) {
+          el.style.opacity = "";
+          el.style.color = "";
+          el.style.textShadow = "";
+          el.style.transform = "";
+        }
+      });
+      activeLitWordsRef.current = currentlyLit;
+
+      // 4. Continue animation loop while light is moving or cursor inside
       const dist = Math.hypot(
         targetPosRef.current.x - currentPosRef.current.x,
         targetPosRef.current.y - currentPosRef.current.y
@@ -64,24 +142,19 @@ export default function PersonalMuseumPage() {
     }
   };
 
-  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
-    if (!containerRef.current || !e.touches[0]) return;
-    const rect = containerRef.current.getBoundingClientRect();
-    targetPosRef.current = {
-      x: e.touches[0].clientX - rect.left,
-      y: e.touches[0].clientY - rect.top,
-    };
-    isPointerInsideRef.current = true;
-
-    if (!animationFrameRef.current) {
-      animationFrameRef.current = requestAnimationFrame(() => animateRef.current());
-    }
-  };
-
   const handlePointerLeave = () => {
     isPointerInsideRef.current = false;
+    // Reset all lit word styles on pointer leave
+    activeLitWordsRef.current.forEach((el) => {
+      el.style.opacity = "";
+      el.style.color = "";
+      el.style.textShadow = "";
+      el.style.transform = "";
+    });
+    activeLitWordsRef.current.clear();
   };
 
+  // Fetch full quran.json dataset
   useEffect(() => {
     let isMounted = true;
 
@@ -106,15 +179,6 @@ export default function PersonalMuseumPage() {
 
     loadQuran();
 
-    // Initial center spotlight fallback
-    if (containerRef.current) {
-      const rect = containerRef.current.getBoundingClientRect();
-      targetPosRef.current = { x: rect.width / 2, y: 350 };
-      currentPosRef.current = { x: rect.width / 2, y: 350 };
-      containerRef.current.style.setProperty("--spotlight-x", `${rect.width / 2}px`);
-      containerRef.current.style.setProperty("--spotlight-y", `350px`);
-    }
-
     return () => {
       isMounted = false;
       if (animationFrameRef.current) {
@@ -122,6 +186,27 @@ export default function PersonalMuseumPage() {
       }
     };
   }, []);
+
+  // Recalculate word positions after rendering, font size change, line height change, or window resize
+  useEffect(() => {
+    if (loading || !containerRef.current) return;
+
+    // Run after DOM paint
+    const timer = setTimeout(() => {
+      cacheWordPositions();
+    }, 100);
+
+    const observer = new ResizeObserver(() => {
+      cacheWordPositions();
+    });
+
+    observer.observe(containerRef.current);
+
+    return () => {
+      clearTimeout(timer);
+      observer.disconnect();
+    };
+  }, [loading, fontSize, lineHeight, selectedFont, surahs]);
 
   return (
     <>
@@ -226,9 +311,6 @@ export default function PersonalMuseumPage() {
               ref={containerRef}
               onPointerMove={handlePointerMove}
               onPointerLeave={handlePointerLeave}
-              onTouchMove={handleTouchMove}
-              onTouchStart={handleTouchMove}
-              onTouchEnd={handlePointerLeave}
               className="relative w-full overflow-hidden bg-[#050505] cursor-crosshair select-text py-6"
               style={
                 {
@@ -237,88 +319,42 @@ export default function PersonalMuseumPage() {
                 } as React.CSSProperties
               }
             >
-              {/* Soft Ambient Light Aura */}
+              {/* Soft Ambient Light Aura Following Mouse */}
               <div
-                className="absolute inset-0 pointer-events-none transition-opacity duration-700 opacity-25"
+                className="absolute inset-0 pointer-events-none transition-opacity duration-500 opacity-30"
                 style={{
                   background:
-                    "radial-gradient(circle 700px at var(--spotlight-x) var(--spotlight-y), rgba(197, 160, 89, 0.09) 0%, transparent 80%)",
+                    "radial-gradient(circle 500px at var(--spotlight-x) var(--spotlight-y), rgba(197, 160, 89, 0.08) 0%, rgba(197, 160, 89, 0.02) 40%, transparent 80%)",
                 }}
               />
 
-              {/* Base Layer: Low-Contrast Manuscript Text Filling Full Page */}
+              {/* Manuscript Text Container with Per-Word Proximity Illumination */}
               <div
-                className={`relative z-10 text-justify text-neutral-600/30 transition-all duration-300 ${selectedFont}`}
+                className={`relative z-10 text-justify transition-all duration-300 ${selectedFont}`}
                 style={{ fontSize: `${fontSize}px`, lineHeight: lineHeight }}
               >
                 {surahs.map((surah, idx) => (
                   <div key={idx} className="mb-14 relative group/surah">
                     {/* Surah Header Line */}
-                    <div className="text-center my-6 py-2 border-y border-[#C5A059]/20 transition-colors duration-300 group-hover/surah:border-[#C5A059]/40">
+                    <div className="text-center my-6 py-2 border-y border-[#C5A059]/25 transition-colors duration-300 group-hover/surah:border-[#C5A059]/50">
                       <span className="text-xs sm:text-sm font-bold text-[#C5A059] tracking-widest">
                         {surah.title}
                       </span>
                     </div>
 
-                    {/* Verses & Words Structure */}
+                    {/* Verses & Words Structure with quran-word-node className */}
                     <div className="text-justify tracking-normal selection:bg-[#C5A059] selection:text-black">
                       {surah.verses.map((verse, vIdx) => (
                         <span key={vIdx} className="inline group/verse">
                           {verse.words.map((word, wIdx) => (
                             <span
                               key={wIdx}
-                              className="inline-block px-[2px] transition-transform duration-300"
+                              className="quran-word-node inline-block px-[2px] opacity-35 text-[#F5F2EB] transition-all duration-200"
                             >
                               {word}{" "}
                             </span>
                           ))}
-                          <span className="inline-block px-1 font-bold text-[#C5A059]/60">
-                            {verse.number}{" "}
-                          </span>
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Spotlight Layer: Masked Luminous High-Contrast Illuminated Text with Parallax Floating Motion */}
-              <div
-                aria-hidden="true"
-                className={`absolute inset-0 py-6 pointer-events-none z-20 text-justify text-[#F5F2EB] transition-all duration-200 ${selectedFont}`}
-                style={{
-                  fontSize: `${fontSize}px`,
-                  lineHeight: lineHeight,
-                  textShadow: "0 0 20px rgba(197, 160, 89, 0.75), 0 0 40px rgba(255, 255, 255, 0.35)",
-                  transform: "translate(calc((var(--spotlight-x) - 50%) * 0.007), calc((var(--spotlight-y) - 50%) * 0.004)) scale(1.012)",
-                  WebkitMaskImage:
-                    "radial-gradient(circle 320px at var(--spotlight-x) var(--spotlight-y), rgba(0,0,0,1) 0%, rgba(0,0,0,0.88) 35%, rgba(0,0,0,0.25) 70%, transparent 100%)",
-                  maskImage:
-                    "radial-gradient(circle 320px at var(--spotlight-x) var(--spotlight-y), rgba(0,0,0,1) 0%, rgba(0,0,0,0.88) 35%, rgba(0,0,0,0.25) 70%, transparent 100%)",
-                }}
-              >
-                {surahs.map((surah, idx) => (
-                  <div key={`spotlight-${idx}`} className="mb-14 relative">
-                    {/* Surah Header Line */}
-                    <div className="text-center my-6 py-2 border-y border-[#C5A059]">
-                      <span className="text-xs sm:text-sm font-bold text-[#C5A059] tracking-widest">
-                        {surah.title}
-                      </span>
-                    </div>
-
-                    {/* Verses & Words Structure */}
-                    <div className="text-justify tracking-normal text-[#F5F2EB]">
-                      {surah.verses.map((verse, vIdx) => (
-                        <span key={`spotlight-v-${vIdx}`} className="inline">
-                          {verse.words.map((word, wIdx) => (
-                            <span
-                              key={`spotlight-w-${wIdx}`}
-                              className="inline-block px-[2px]"
-                            >
-                              {word}{" "}
-                            </span>
-                          ))}
-                          <span className="inline-block px-1 font-bold text-[#C5A059]">
+                          <span className="quran-word-node inline-block px-1 font-bold text-[#C5A059] opacity-50 transition-all duration-200">
                             {verse.number}{" "}
                           </span>
                         </span>
