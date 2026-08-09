@@ -124,7 +124,7 @@ export default function Footer() {
 
         <div className="border-t border-neutral-800 mt-24 pt-10 flex flex-col md:flex-row items-center justify-between gap-6">
           <p className="text-neutral-500 text-sm">
-            © 2026 أكاديمية عمر خزعل — جميع الحقوق محفوظة.
+            © 2026 عمر خزعل — جميع الحقوق محفوظة.
           </p>
 
           {/* Visitor Counter Button Badge */}

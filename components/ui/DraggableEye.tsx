@@ -22,7 +22,7 @@ interface DraggableEyeProps {
 
 export default function DraggableEye({
   src = "/eye.webp",
-  alt = "أكاديمية عمر خزعل",
+  alt = "عمر خزعل",
   width = 320,
   height = 320,
   className = "w-44 sm:w-56 md:w-68 lg:w-80 h-auto",

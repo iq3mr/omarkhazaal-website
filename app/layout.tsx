@@ -69,7 +69,7 @@ const thmanyahSerif = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "أكاديمية عمر خزعل",
+  title: "عمر خزعل",
   description: "الفن ليس مادة تُدرّس... بل تجربة تُعاش.",
 };
 

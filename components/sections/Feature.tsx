@@ -30,7 +30,7 @@ export default function Feature() {
 
           <p className="max-w-3xl text-2xl text-neutral-400 leading-10 mt-10">
 
-            أكاديمية عمر خزعل هي مساحة تجمع بين
+            موقع عمر خزعل هو مساحة تجمع بين
             الفن،
             التصميم،
             المعرفة،

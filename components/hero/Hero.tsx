@@ -32,7 +32,7 @@ export default function Hero() {
             text-[#121212]
           "
         >
-          أكاديمية عمر خزعل
+          عمر خزعل
         </h1>
 
         {/* Museum Divider */}

@@ -160,7 +160,7 @@ export default function Navbar() {
                     />
 
                     <span className="mt-2 text-xs lg:text-sm font-bold text-[#151515]">
-                      أكاديمية عمر خزعل
+                      عمر خزعل
                     </span>
 
                   </Link>
