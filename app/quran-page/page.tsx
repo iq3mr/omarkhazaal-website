@@ -145,15 +145,15 @@ export default function QuranPage() {
             className="inline-flex items-center gap-2 px-5 py-1.5 rounded-full museum-plaque border border-[#C5A059]/40 text-[#C5A059] text-xs font-bold tracking-widest uppercase shadow-2xl"
           >
             <Sparkles className="w-3.5 h-3.5 text-[#C5A059] animate-pulse" />
-            <span>الْقُرْآنُ الْكَرِيمُ</span>
+            <span>القرآن الكريم</span>
             <Sparkles className="w-3.5 h-3.5 text-[#C5A059] animate-pulse" />
           </motion.div>
 
           <h1 className="mt-4 text-3xl sm:text-5xl md:text-6xl font-serif font-black leading-tight text-[#F5F2EB] tracking-wide">
-            الْقُرْآنُ الْكَرِيمُ
+            القرآن الكريم
           </h1>
           <p className="mt-1 text-xs sm:text-sm text-[#C5A059] font-serif tracking-widest opacity-80">
-            مِنْ سُورَةِ الْفَاتِحَةِ إِلَى سُورَةِ النَّاسِ
+            من سورة الفاتحة الى سورة الناس
           </p>
 
           {/* Interactive Typography Toolbar (أداة التحكم بالخطوط والسطور) */}
@@ -226,7 +226,7 @@ export default function QuranPage() {
           <div className="max-w-md mx-auto px-6 py-20 text-center flex flex-col items-center justify-center relative z-20">
             <div className="font-serif text-[#C5A059] text-sm sm:text-base mb-4 flex items-center justify-center gap-2">
               <Sparkles className="w-4 h-4 animate-spin text-[#C5A059]" />
-              <span>جَارٍ تَحْمِيلُ النَّصِّ الْقُرْآنِيِّ الْكِلاَسِيكِيِّ...</span>
+              <span>جار تحميل النص القرآني</span>
             </div>
 
             {/* Progress Track */}
