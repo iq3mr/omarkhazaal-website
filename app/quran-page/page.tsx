@@ -7,9 +7,10 @@ import { motion } from "framer-motion";
 import { Type, MoveVertical, Sparkles, SlidersHorizontal } from "lucide-react";
 import { parseQuranJson, ParsedSurah } from "../../lib/loadQuranJson";
 
-export default function PersonalMuseumPage() {
+export default function QuranPage() {
   const [surahs, setSurahs] = useState<ParsedSurah[]>([]);
   const [loading, setLoading] = useState(true);
+  const [loadingProgress, setLoadingProgress] = useState<number>(0);
 
   // Typography Controls
   const [fontSize, setFontSize] = useState<number>(26);
@@ -23,14 +24,13 @@ export default function PersonalMuseumPage() {
   const targetPosRef = useRef({ x: -1000, y: -1000 });
   const currentPosRef = useRef({ x: -1000, y: -1000 });
 
-  // Ultra-Fast 120fps Inertial Lerp Animation Loop (GPU Hardware Accelerated, 0ms CPU Load)
+  // Ultra-Fast 120fps Inertial Lerp Animation Loop (GPU Hardware Accelerated)
   const animateRef = useRef<() => void>(() => {});
 
   useEffect(() => {
     animateRef.current = () => {
       if (!containerRef.current) return;
 
-      // Inertial smooth lerp factor
       const lerpFactor = 0.15;
       currentPosRef.current.x += (targetPosRef.current.x - currentPosRef.current.x) * lerpFactor;
       currentPosRef.current.y += (targetPosRef.current.y - currentPosRef.current.y) * lerpFactor;
@@ -83,33 +83,49 @@ export default function PersonalMuseumPage() {
     isPointerInsideRef.current = false;
   };
 
-  // Fetch full quran.json dataset
+  // Fetch full quran.json dataset with live progress tracking
   useEffect(() => {
     let isMounted = true;
 
-    async function loadQuran() {
-      try {
-        const res = await fetch("/quran/quran.json");
-        if (res.ok) {
-          const data = await res.json();
-          if (isMounted) {
-            const parsed = parseQuranJson(data);
-            setSurahs(parsed);
-            setLoading(false);
-          }
-        } else {
-          if (isMounted) setLoading(false);
-        }
-      } catch (err) {
-        console.error("Error loading quran.json:", err);
-        if (isMounted) setLoading(false);
-      }
-    }
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", "/quran/quran.json");
 
-    loadQuran();
+    xhr.onprogress = (e) => {
+      if (!isMounted) return;
+      const totalEst = e.lengthComputable && e.total > 0 ? e.total : 3783592;
+      const pct = Math.min(99, Math.round((e.loaded / totalEst) * 100));
+      setLoadingProgress(pct);
+    };
+
+    xhr.onload = () => {
+      if (!isMounted) return;
+      if (xhr.status === 200) {
+        setLoadingProgress(100);
+        try {
+          const data = JSON.parse(xhr.responseText);
+          const parsed = parseQuranJson(data);
+          setSurahs(parsed);
+          setTimeout(() => {
+            if (isMounted) setLoading(false);
+          }, 300);
+        } catch (err) {
+          console.error("Error parsing quran.json:", err);
+          setLoading(false);
+        }
+      } else {
+        setLoading(false);
+      }
+    };
+
+    xhr.onerror = () => {
+      if (isMounted) setLoading(false);
+    };
+
+    xhr.send();
 
     return () => {
       isMounted = false;
+      xhr.abort();
       if (animationFrameRef.current) {
         cancelAnimationFrame(animationFrameRef.current);
       }
@@ -129,15 +145,15 @@ export default function PersonalMuseumPage() {
             className="inline-flex items-center gap-2 px-5 py-1.5 rounded-full museum-plaque border border-[#C5A059]/40 text-[#C5A059] text-xs font-bold tracking-widest uppercase shadow-2xl"
           >
             <Sparkles className="w-3.5 h-3.5 text-[#C5A059] animate-pulse" />
-            <span>القرآن الكريم</span>
+            <span>الْقُرْآنُ الْكَرِيمُ</span>
             <Sparkles className="w-3.5 h-3.5 text-[#C5A059] animate-pulse" />
           </motion.div>
 
           <h1 className="mt-4 text-3xl sm:text-5xl md:text-6xl font-serif font-black leading-tight text-[#F5F2EB] tracking-wide">
-            القرآن الكريم
+            الْقُرْآنُ الْكَرِيمُ
           </h1>
           <p className="mt-1 text-xs sm:text-sm text-[#C5A059] font-serif tracking-widest opacity-80">
-            من سورة الفاتحة الى سورة الناس
+            مِنْ سُورَةِ الْفَاتِحَةِ إِلَى سُورَةِ النَّاسِ
           </p>
 
           {/* Interactive Typography Toolbar (أداة التحكم بالخطوط والسطور) */}
@@ -193,7 +209,7 @@ export default function PersonalMuseumPage() {
                 >
                   -
                 </button>
-                <span className="w-8 text-center font-[#font-mono] font-bold text-white text-xs">{lineHeight.toFixed(1)}</span>
+                <span className="w-8 text-center font-mono font-bold text-white text-xs">{lineHeight.toFixed(1)}</span>
                 <button
                   onClick={() => setLineHeight((prev) => Math.min(3.4, parseFloat((prev + 0.2).toFixed(1))))}
                   className="w-5 h-5 rounded-full bg-neutral-800 hover:bg-[#C5A059] hover:text-black transition flex items-center justify-center font-bold text-xs"
@@ -205,10 +221,26 @@ export default function PersonalMuseumPage() {
           </div>
         </div>
 
-        {/* Loading Indicator */}
+        {/* Elegant Museum Progress Loading Indicator */}
         {loading && (
-          <div className="text-center py-20 font-serif text-[#C5A059] text-sm animate-pulse">
-           جار تحميل النص القرآني
+          <div className="max-w-md mx-auto px-6 py-20 text-center flex flex-col items-center justify-center relative z-20">
+            <div className="font-serif text-[#C5A059] text-sm sm:text-base mb-4 flex items-center justify-center gap-2">
+              <Sparkles className="w-4 h-4 animate-spin text-[#C5A059]" />
+              <span>جَارٍ تَحْمِيلُ النَّصِّ الْقُرْآنِيِّ الْكِلاَسِيكِيِّ...</span>
+            </div>
+
+            {/* Progress Track */}
+            <div className="w-full h-3 rounded-full bg-neutral-900 border border-[#C5A059]/40 p-[2px] overflow-hidden shadow-2xl relative">
+              <div
+                className="h-full rounded-full bg-gradient-to-r from-[#C5A059]/60 via-[#C5A059] to-[#FFF0B0] transition-all duration-300 shadow-[0_0_12px_rgba(197,160,89,0.8)]"
+                style={{ width: `${loadingProgress}%` }}
+              />
+            </div>
+
+            {/* Percentage Text */}
+            <div className="mt-3 font-mono text-xs font-bold text-[#C5A059] tracking-widest">
+              {loadingProgress}%
+            </div>
           </div>
         )}
 
