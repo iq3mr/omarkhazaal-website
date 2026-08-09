@@ -1,6 +1,13 @@
+export interface QuranVerse {
+  number: string;
+  text: string;
+  words: string[];
+}
+
 export interface ParsedSurah {
   title: string;
   body: string;
+  verses: QuranVerse[];
 }
 
 export function toArabicNumerals(text: string): string {
@@ -37,7 +44,25 @@ export function parseQuranJson(jsonRaw: Record<string, unknown> | string): Parse
     if (part.startsWith("سورة")) {
       const title = part;
       const body = parts[i + 1] ? parts[i + 1].trim() : "";
-      surahs.push({ title, body });
+
+      // Parse individual verses and words
+      const verses: QuranVerse[] = [];
+      const verseMatches = body.split(/(\([\u0660-\u0669]+\))/g).filter(Boolean);
+
+      for (let j = 0; j < verseMatches.length; j += 2) {
+        const verseText = verseMatches[j].trim();
+        const verseNum = verseMatches[j + 1] ? verseMatches[j + 1].trim() : "";
+        if (verseText) {
+          const words = verseText.split(/\s+/).filter(Boolean);
+          verses.push({
+            number: verseNum,
+            text: verseText,
+            words: words,
+          });
+        }
+      }
+
+      surahs.push({ title, body, verses });
       i++; // Skip body index in next iteration
     }
   }

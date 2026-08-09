@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect, useCallback } from "react";
+import { useState, useRef, useEffect } from "react";
 import Navbar from "../../components/layout/Navbar";
 import Footer from "../../components/layout/Footer";
 import { motion } from "framer-motion";
@@ -18,35 +18,54 @@ export default function PersonalMuseumPage() {
 
   const containerRef = useRef<HTMLDivElement>(null);
   const animationFrameRef = useRef<number | null>(null);
-  const mousePosRef = useRef({ x: -1000, y: -1000 });
+  const isPointerInsideRef = useRef(false);
 
-  // Update spotlight position via CSS variables with requestAnimationFrame for 120fps smooth performance
-  const updateSpotlight = useCallback(() => {
-    if (containerRef.current) {
-      const rect = containerRef.current.getBoundingClientRect();
-      const relativeX = mousePosRef.current.x - rect.left;
-      const relativeY = mousePosRef.current.y - rect.top;
+  const targetPosRef = useRef({ x: -1000, y: -1000 });
+  const currentPosRef = useRef({ x: -1000, y: -1000 });
 
-      containerRef.current.style.setProperty("--spotlight-x", `${relativeX}px`);
-      containerRef.current.style.setProperty("--spotlight-y", `${relativeY}px`);
-    }
-    animationFrameRef.current = null;
-  }, []);
+  // High performance inertial Lerp Spotlight animation loop (120fps hardware acceleration)
+  const animateRef = useRef<() => void>(() => {});
+
+  useEffect(() => {
+    animateRef.current = () => {
+      if (!containerRef.current) return;
+
+      const lerpFactor = 0.12;
+      currentPosRef.current.x += (targetPosRef.current.x - currentPosRef.current.x) * lerpFactor;
+      currentPosRef.current.y += (targetPosRef.current.y - currentPosRef.current.y) * lerpFactor;
+
+      containerRef.current.style.setProperty("--spotlight-x", `${currentPosRef.current.x}px`);
+      containerRef.current.style.setProperty("--spotlight-y", `${currentPosRef.current.y}px`);
+
+      const dist = Math.hypot(
+        targetPosRef.current.x - currentPosRef.current.x,
+        targetPosRef.current.y - currentPosRef.current.y
+      );
+
+      if (dist > 0.1 || isPointerInsideRef.current) {
+        animationFrameRef.current = requestAnimationFrame(() => animateRef.current());
+      } else {
+        animationFrameRef.current = null;
+      }
+    };
+  });
 
   const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
-    mousePosRef.current = { x: e.clientX, y: e.clientY };
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    targetPosRef.current = {
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    };
+    isPointerInsideRef.current = true;
+
     if (!animationFrameRef.current) {
-      animationFrameRef.current = requestAnimationFrame(updateSpotlight);
+      animationFrameRef.current = requestAnimationFrame(() => animateRef.current());
     }
   };
 
-  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
-    if (e.touches[0]) {
-      mousePosRef.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
-      if (!animationFrameRef.current) {
-        animationFrameRef.current = requestAnimationFrame(updateSpotlight);
-      }
-    }
+  const handlePointerLeave = () => {
+    isPointerInsideRef.current = false;
   };
 
   useEffect(() => {
@@ -76,6 +95,8 @@ export default function PersonalMuseumPage() {
     // Initial center spotlight fallback
     if (containerRef.current) {
       const rect = containerRef.current.getBoundingClientRect();
+      targetPosRef.current = { x: rect.width / 2, y: 350 };
+      currentPosRef.current = { x: rect.width / 2, y: 350 };
       containerRef.current.style.setProperty("--spotlight-x", `${rect.width / 2}px`);
       containerRef.current.style.setProperty("--spotlight-y", `350px`);
     }
@@ -190,7 +211,7 @@ export default function PersonalMuseumPage() {
             <div
               ref={containerRef}
               onPointerMove={handlePointerMove}
-              onTouchMove={handleTouchMove}
+              onPointerLeave={handlePointerLeave}
               className="relative w-full overflow-hidden bg-[#050505] cursor-crosshair select-text py-6"
               style={
                 {
@@ -214,18 +235,32 @@ export default function PersonalMuseumPage() {
                 style={{ fontSize: `${fontSize}px`, lineHeight: lineHeight }}
               >
                 {surahs.map((surah, idx) => (
-                  <div key={idx} className="mb-14 relative">
+                  <div key={idx} className="mb-14 relative group/surah">
                     {/* Surah Header Line */}
-                    <div className="text-center my-6 py-2 border-y border-[#C5A059]/20">
+                    <div className="text-center my-6 py-2 border-y border-[#C5A059]/20 transition-colors duration-300 group-hover/surah:border-[#C5A059]/40">
                       <span className="text-xs sm:text-sm font-bold text-[#C5A059] tracking-widest">
                         {surah.title}
                       </span>
                     </div>
 
-                    {/* Surah Body Verses with Eastern Arabic Numerals (١) (٢) (٣) */}
-                    <p className={`text-justify tracking-normal selection:bg-[#C5A059] selection:text-black ${selectedFont}`}>
-                      {surah.body}
-                    </p>
+                    {/* Verses & Words Structure */}
+                    <div className="text-justify tracking-normal selection:bg-[#C5A059] selection:text-black">
+                      {surah.verses.map((verse, vIdx) => (
+                        <span key={vIdx} className="inline group/verse">
+                          {verse.words.map((word, wIdx) => (
+                            <span
+                              key={wIdx}
+                              className="inline-block px-[2px] transition-transform duration-300"
+                            >
+                              {word}{" "}
+                            </span>
+                          ))}
+                          <span className="inline-block px-1 font-bold text-[#C5A059]/60">
+                            {verse.number}{" "}
+                          </span>
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 ))}
               </div>
@@ -237,12 +272,12 @@ export default function PersonalMuseumPage() {
                 style={{
                   fontSize: `${fontSize}px`,
                   lineHeight: lineHeight,
-                  textShadow: "0 0 18px rgba(197, 160, 89, 0.6), 0 0 32px rgba(255, 255, 255, 0.3)",
-                  transform: "translate(calc((var(--spotlight-x) - 50%) * 0.008), calc((var(--spotlight-y) - 50%) * 0.005)) scale(1.012)",
+                  textShadow: "0 0 20px rgba(197, 160, 89, 0.75), 0 0 40px rgba(255, 255, 255, 0.35)",
+                  transform: "translate(calc((var(--spotlight-x) - 50%) * 0.007), calc((var(--spotlight-y) - 50%) * 0.004)) scale(1.012)",
                   WebkitMaskImage:
-                    "radial-gradient(circle 290px at var(--spotlight-x) var(--spotlight-y), rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 45%, rgba(0,0,0,0.15) 75%, transparent 100%)",
+                    "radial-gradient(circle 320px at var(--spotlight-x) var(--spotlight-y), rgba(0,0,0,1) 0%, rgba(0,0,0,0.88) 35%, rgba(0,0,0,0.25) 70%, transparent 100%)",
                   maskImage:
-                    "radial-gradient(circle 290px at var(--spotlight-x) var(--spotlight-y), rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 45%, rgba(0,0,0,0.15) 75%, transparent 100%)",
+                    "radial-gradient(circle 320px at var(--spotlight-x) var(--spotlight-y), rgba(0,0,0,1) 0%, rgba(0,0,0,0.88) 35%, rgba(0,0,0,0.25) 70%, transparent 100%)",
                 }}
               >
                 {surahs.map((surah, idx) => (
@@ -254,10 +289,24 @@ export default function PersonalMuseumPage() {
                       </span>
                     </div>
 
-                    {/* Surah Body Verses */}
-                    <p className={`text-justify tracking-normal text-[#F5F2EB] ${selectedFont}`}>
-                      {surah.body}
-                    </p>
+                    {/* Verses & Words Structure */}
+                    <div className="text-justify tracking-normal text-[#F5F2EB]">
+                      {surah.verses.map((verse, vIdx) => (
+                        <span key={`spotlight-v-${vIdx}`} className="inline">
+                          {verse.words.map((word, wIdx) => (
+                            <span
+                              key={`spotlight-w-${wIdx}`}
+                              className="inline-block px-[2px]"
+                            >
+                              {word}{" "}
+                            </span>
+                          ))}
+                          <span className="inline-block px-1 font-bold text-[#C5A059]">
+                            {verse.number}{" "}
+                          </span>
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 ))}
               </div>
