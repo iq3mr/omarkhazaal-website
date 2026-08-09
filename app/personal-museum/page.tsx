@@ -269,11 +269,10 @@ export default function PersonalMuseumPage() {
                   fontSize: `${fontSize}px`,
                   lineHeight: lineHeight,
                   textShadow: "0 0 18px rgba(197, 160, 89, 0.75), 0 0 35px rgba(255, 255, 255, 0.35)",
-                  transform: "translate(calc((var(--spotlight-x) - 50%) * 0.006), calc((var(--spotlight-y) - 50%) * 0.003)) scale(1.01)",
                   WebkitMaskImage:
-                    "radial-gradient(circle 300px at var(--spotlight-x) var(--spotlight-y), rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 35%, rgba(0,0,0,0.15) 70%, transparent 100%)",
+                    "radial-gradient(circle 280px at var(--spotlight-x) var(--spotlight-y), rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 35%, rgba(0,0,0,0.15) 70%, transparent 100%)",
                   maskImage:
-                    "radial-gradient(circle 300px at var(--spotlight-x) var(--spotlight-y), rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 35%, rgba(0,0,0,0.15) 70%, transparent 100%)",
+                    "radial-gradient(circle 280px at var(--spotlight-x) var(--spotlight-y), rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 35%, rgba(0,0,0,0.15) 70%, transparent 100%)",
                 }}
               >
                 {surahs.map((surah, idx) => (
