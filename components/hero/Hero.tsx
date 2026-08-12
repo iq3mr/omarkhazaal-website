@@ -54,17 +54,19 @@ export default function Hero() {
         </p>
 
         {/* Action Buttons */}
-        <div className="mt-12 flex flex-wrap items-center justify-center gap-6">
+        <div className="mt-12 flex flex-wrap items-center justify-center gap-4 sm:gap-6">
           <Link
             href="#courses"
             className="
-              px-10
+              px-8
+              sm:px-10
               py-4
               rounded-full
               bg-[#A30018]
               text-white
               font-bold
-              text-lg
+              text-base
+              sm:text-lg
               shadow-[0_10px_30px_rgba(163,0,24,0.35)]
               hover:bg-[#800013]
               hover:scale-105
@@ -80,14 +82,16 @@ export default function Hero() {
           <Link
             href="/about"
             className="
-              px-10
+              px-8
+              sm:px-10
               py-4
               rounded-full
               bg-white/80
               backdrop-blur-md
               text-[#121212]
               font-bold
-              text-lg
+              text-base
+              sm:text-lg
               border
               border-[#C5A059]/40
               shadow-md
@@ -99,6 +103,31 @@ export default function Hero() {
             "
           >
             عن الفنان
+          </Link>
+
+          <Link
+            href="/art-archive"
+            className="
+              px-8
+              sm:px-10
+              py-4
+              rounded-full
+              bg-[#181818]
+              text-[#C5A059]
+              font-bold
+              text-base
+              sm:text-lg
+              border
+              border-[#C5A059]/60
+              shadow-lg
+              hover:bg-[#C5A059]
+              hover:text-black
+              hover:scale-105
+              transition-all
+              duration-300
+            "
+          >
+            وثق أعمالك الفنية
           </Link>
         </div>
 
