@@ -25,11 +25,11 @@ export default function ArtArchivePage() {
           </motion.div>
 
           <h1 className="mt-6 text-4xl sm:text-6xl md:text-7xl font-serif font-black leading-tight text-[#F5F2EB] tracking-wide">
-            وَثِّقْ أَعْمَالَكَ الْفَنِّيَّةَ
+            وثق اعمالك الفنية
           </h1>
 
           <p className="mt-4 text-base sm:text-xl text-[#C5A059] font-serif max-w-3xl mx-auto leading-relaxed">
-            حِفْظُ الذَّاكِرَةِ الْبَصَرِيَّةِ، حِمَايَةُ الْهُوِيَّةِ الْإِبْدَاعِيَّةِ، وَبِنَاءُ الأَرْشِيفِ الْفَنِّيِّ المَرْجِعِيِّ
+            حفظ الذاكرة البصرية، حماية الهوية الإبداعية وبناء الأرشيف الفني المرجعي
           </p>
 
           <div className="w-32 h-[2px] bg-gradient-to-r from-transparent via-[#C5A059] to-transparent mx-auto my-8" />
